@@ -1,0 +1,1584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cambridge China Business Forum 2026 — Innovating Together</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════
+   GLOBAL RESET & TOKENS
+   ════════════════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --crimson:#8B1A1A; --crimson-mid:#A52020; --crimson-deep:#5A0E0E;
+  --gold:#C9A84C; --gold-light:#E8CC7A; --gold-pale:rgba(201,168,76,0.15);
+  --base:#0D0605; --cream:#F5ECD7;
+  --cream-muted:rgba(245,236,215,0.6); --cream-faint:rgba(245,236,215,0.28);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--base);overflow-x:hidden;font-family:'EB Garamond',serif;color:var(--cream);}
+img{display:block;max-width:100%;}
+
+/* ── shared reveal util ── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s ease;}
+.reveal.up{opacity:1;transform:none;}
+.reveal-delay-1{transition-delay:.12s;}
+.reveal-delay-2{transition-delay:.24s;}
+.reveal-delay-3{transition-delay:.36s;}
+
+/* ── section overline ── */
+.sec-overline{display:flex;align-items:center;gap:18px;margin-bottom:56px;}
+.sec-overline-rule{flex:1;height:.5px;background:linear-gradient(to right,transparent,rgba(201,168,76,.35));}
+.sec-overline-rule.r{background:linear-gradient(to left,transparent,rgba(201,168,76,.35));}
+.sec-overline-text{font-size:11px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;white-space:nowrap;}
+
+/* ── shared button styles ── */
+.btn-gold{font-family:'EB Garamond',serif;font-size:14px;letter-spacing:.16em;color:var(--base);background:var(--gold);padding:13px 36px;border:none;cursor:pointer;text-decoration:none;text-transform:uppercase;display:inline-block;transition:background .3s,transform .2s,box-shadow .3s;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,168,76,.25);}
+.btn-outline{font-family:'EB Garamond',serif;font-size:14px;letter-spacing:.16em;color:var(--gold);background:transparent;padding:13px 36px;border:.5px solid rgba(201,168,76,.4);cursor:pointer;text-decoration:none;text-transform:uppercase;display:inline-block;transition:border-color .3s,color .3s,transform .2s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-light);transform:translateY(-2px);}
+
+/* ════════════════════════════════════════════════════
+   01 — NAVBAR
+   ════════════════════════════════════════════════════ */
+#navbar{position:fixed;top:0;left:0;right:0;z-index:200;padding:22px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .6s ease,padding .4s ease;}
+#navbar.scrolled{background:rgba(13,6,5,.92);backdrop-filter:blur(14px);padding:14px 48px;border-bottom:.5px solid rgba(201,168,76,.12);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.18em;color:var(--gold);text-transform:uppercase;}
+.nav-logo span{color:var(--cream-muted);margin:0 8px;}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-family:'EB Garamond',serif;font-size:14px;letter-spacing:.08em;color:var(--cream-muted);text-decoration:none;transition:color .3s;position:relative;}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:.5px;background:var(--gold);transform:scaleX(0);transition:transform .3s ease;transform-origin:left;}
+.nav-links a:hover{color:var(--gold);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-cta{font-family:'EB Garamond',serif;font-size:13px;letter-spacing:.12em;color:var(--base);background:var(--gold);padding:9px 22px;text-decoration:none;transition:background .3s,transform .2s;}
+.nav-cta:hover{background:var(--gold-light);transform:translateY(-1px);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.nav-hamburger span{display:block;width:22px;height:1px;background:var(--gold);transition:transform .3s,opacity .3s;}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none;}
+  .nav-hamburger{display:flex;}
+  #navbar{padding:18px 24px;}
+  #navbar.scrolled{padding:14px 24px;}
+}
+
+/* ════════════════════════════════════════════════════
+   02 — HERO
+   ════════════════════════════════════════════════════ */
+#hero{position:relative;width:100vw;height:100vh;min-height:700px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+#particleCanvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1;}
+#hero::after{content:'';position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse at center,transparent 28%,rgba(13,6,5,.72) 100%);pointer-events:none;}
+.hero-rule{position:absolute;left:8%;right:8%;height:.5px;z-index:3;background:linear-gradient(to right,transparent,rgba(201,168,76,.28),transparent);}
+.hero-rule-top{top:80px;}.hero-rule-bottom{bottom:80px;}
+.hero-content{position:relative;z-index:4;text-align:center;display:flex;flex-direction:column;align-items:center;opacity:0;animation:heroReveal 1.8s cubic-bezier(.16,1,.3,1) .8s forwards;}
+@keyframes heroReveal{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.hero-edition{font-size:11px;letter-spacing:.32em;color:var(--gold);text-transform:uppercase;margin-bottom:22px;opacity:0;animation:fadeUp 1s ease 1.4s forwards;}
+.hero-phase-label{position:absolute;top:-46px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.22em;color:var(--gold);opacity:0;text-transform:uppercase;white-space:nowrap;transition:opacity .8s ease;}
+.hero-phase-label.vis{opacity:.55;}
+.hero-title-wrap{position:relative;margin-bottom:8px;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(68px,10vw,124px);font-weight:300;line-height:.92;color:var(--cream);letter-spacing:-.01em;display:block;opacity:0;animation:fadeUp 1.2s cubic-bezier(.16,1,.3,1) 1.1s forwards;}
+.hero-title em{font-style:italic;color:var(--gold);}
+.hero-divider{width:1px;height:38px;background:linear-gradient(to bottom,var(--gold),transparent);margin:18px auto;opacity:0;animation:fadeIn 1s ease 1.8s forwards;}
+.hero-chinese{font-family:'Noto Serif SC',serif;font-size:clamp(15px,2vw,21px);font-weight:300;color:var(--cream-muted);letter-spacing:.44em;margin-bottom:5px;opacity:0;animation:fadeUp 1s ease 1.6s forwards;}
+.hero-tagline{font-family:'EB Garamond',serif;font-size:clamp(13px,1.4vw,16px);font-style:italic;color:var(--cream-faint);letter-spacing:.07em;margin-bottom:44px;opacity:0;animation:fadeIn 1s ease 2s forwards;}
+.hero-meta{display:flex;align-items:center;gap:22px;font-size:13px;letter-spacing:.14em;color:var(--cream-faint);margin-bottom:38px;opacity:0;animation:fadeIn 1s ease 2.1s forwards;}
+.hero-meta-sep{width:3px;height:3px;border-radius:50%;background:var(--gold);opacity:.5;flex-shrink:0;}
+.hero-actions{display:flex;gap:16px;opacity:0;animation:fadeUp 1s ease 2.2s forwards;}
+.corner-ornament{position:absolute;z-index:5;width:38px;height:38px;opacity:.3;}
+.corner-ornament svg{width:100%;height:100%;}
+.co-tl{top:96px;left:44px;}.co-tr{top:96px;right:44px;transform:scaleX(-1);}
+.co-bl{bottom:96px;left:44px;transform:scaleY(-1);}.co-br{bottom:96px;right:44px;transform:scale(-1);}
+.edition-badge{position:absolute;top:116px;right:44px;z-index:5;display:flex;flex-direction:column;align-items:center;gap:5px;opacity:0;animation:fadeIn 1s ease 2.5s forwards;}
+.edition-badge-ring{width:62px;height:62px;border-radius:50%;border:.5px solid rgba(201,168,76,.28);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;}
+.edition-badge-num{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:300;color:var(--gold);line-height:1;}
+.edition-badge-label,.edition-badge-year{font-size:8px;letter-spacing:.18em;color:var(--cream-faint);text-transform:uppercase;}
+.phase-dots{position:absolute;bottom:34px;right:44px;z-index:5;display:flex;gap:6px;opacity:0;animation:fadeIn 1s ease 3s forwards;}
+.phase-dot{width:4px;height:4px;border-radius:50%;background:rgba(201,168,76,.22);transition:background .6s,transform .3s;}
+.phase-dot.active{background:var(--gold);transform:scale(1.4);}
+.scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:7px;opacity:0;animation:fadeIn 1.2s ease 3s forwards;}
+.scroll-cue span{font-size:10px;letter-spacing:.22em;color:var(--cream-faint);text-transform:uppercase;}
+.scroll-line{width:.5px;height:38px;background:linear-gradient(to bottom,rgba(201,168,76,.5),transparent);animation:scrollPulse 2s ease-in-out infinite;}
+@keyframes scrollPulse{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ════════════════════════════════════════════════════
+   03 — FORUM IDENTITY
+   ════════════════════════════════════════════════════ */
+#identity{position:relative;overflow:hidden;background:linear-gradient(to bottom,#0D0605 0%,#1A0808 7%,var(--crimson-deep) 20%,var(--crimson) 48%,var(--crimson-mid) 70%,var(--crimson-deep) 86%,#1A0808 96%,#0D0605 100%);}
+#identity::before{content:'';position:absolute;inset:0;z-index:2;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");background-size:200px;opacity:.45;pointer-events:none;mix-blend-mode:overlay;}
+.cloud-layer{position:absolute;inset:0;pointer-events:none;z-index:1;overflow:hidden;}
+.cloud{position:absolute;will-change:transform;opacity:0;transition:opacity 1.2s ease;}
+.cloud.vis{opacity:1;}
+.id-inner{position:relative;z-index:3;max-width:1200px;margin:0 auto;padding:130px 64px 150px;}
+.id-theme{display:grid;grid-template-columns:1fr 200px;gap:0 80px;align-items:start;margin-bottom:90px;}
+.id-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(50px,6.5vw,86px);font-weight:300;line-height:1;color:var(--cream);letter-spacing:-.01em;margin-bottom:28px;}
+.id-headline em{font-style:italic;color:var(--gold);}
+.id-headline .cn-sub{display:block;font-family:'Noto Serif SC',serif;font-size:.46em;font-weight:200;letter-spacing:.4em;color:var(--cream-muted);margin-top:10px;}
+.id-body{font-size:clamp(17px,1.7vw,20px);line-height:1.78;color:var(--cream-muted);max-width:510px;}
+.id-body strong{color:var(--gold);font-weight:500;}
+.id-calli{display:flex;flex-direction:column;align-items:center;gap:14px;padding-top:6px;}
+.calli-char{width:100%;text-align:center;}
+.calli-glyph{font-family:'Noto Serif SC',serif;font-size:clamp(90px,10vw,138px);font-weight:200;color:var(--gold);line-height:1;display:block;opacity:0;transition:opacity 1.2s ease;}
+.calli-glyph.vis{opacity:1;}
+.calli-pin{font-size:11px;letter-spacing:.2em;color:rgba(201,168,76,.5);font-style:italic;}
+.calli-rule{width:36px;height:.5px;background:rgba(201,168,76,.22);}
+.calli-name{font-size:11px;letter-spacing:.16em;color:var(--cream-faint);text-transform:uppercase;}
+.pillars-label{font-size:11px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:36px;}
+.id-pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-bottom:90px;border:.5px solid rgba(201,168,76,.15);}
+.pillar{padding:44px 32px 40px;position:relative;overflow:hidden;background:rgba(70,10,10,.22);border-right:.5px solid rgba(201,168,76,.1);cursor:default;}
+.pillar:last-child{border-right:none;}
+.pillar::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,.055) 0%,transparent 55%);opacity:0;transition:opacity .4s;}
+.pillar:hover::before{opacity:1;}
+.pillar::after{content:'';position:absolute;top:0;left:0;width:1.5px;height:0%;background:linear-gradient(to bottom,var(--gold),transparent);transition:height .55s cubic-bezier(.16,1,.3,1);}
+.pillar:hover::after{height:100%;}
+.pillar-num{font-size:10px;letter-spacing:.28em;color:rgba(201,168,76,.4);display:block;margin-bottom:22px;}
+.pillar-icon{width:44px;height:44px;margin-bottom:20px;}
+.pillar-icon svg{width:100%;height:100%;}
+.pillar-en{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.4vw,30px);font-weight:300;color:var(--cream);display:block;margin-bottom:5px;transition:color .3s;}
+.pillar:hover .pillar-en{color:var(--gold-light);}
+.pillar-cn{font-family:'Noto Serif SC',serif;font-size:13px;font-weight:200;color:rgba(201,168,76,.48);letter-spacing:.3em;display:block;margin-bottom:20px;}
+.pillar-desc{font-size:15px;line-height:1.72;color:var(--cream-faint);transition:color .3s;}
+.pillar:hover .pillar-desc{color:var(--cream-muted);}
+.id-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:.5px solid rgba(201,168,76,.16);border-bottom:.5px solid rgba(201,168,76,.16);margin-bottom:90px;}
+.stat-item{padding:32px 20px;border-right:.5px solid rgba(201,168,76,.1);text-align:center;position:relative;overflow:hidden;}
+.stat-item:last-child{border-right:none;}
+.stat-item::before{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:1.5px;background:var(--gold);transition:width .5s ease;}
+.stat-item:hover::before{width:55%;}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,52px);font-weight:300;color:var(--gold);line-height:1;display:block;margin-bottom:6px;}
+.stat-suf{font-size:.55em;vertical-align:super;color:var(--gold-light);}
+.stat-en{font-size:11px;letter-spacing:.2em;color:var(--cream-muted);text-transform:uppercase;display:block;margin-bottom:3px;}
+.stat-cn{font-family:'Noto Serif SC',serif;font-size:11px;font-weight:200;letter-spacing:.2em;color:var(--cream-faint);display:block;}
+.id-quote{display:grid;grid-template-columns:72px 1fr;gap:0 36px;align-items:start;}
+.id-qmark{font-family:'Cormorant Garamond',serif;font-size:110px;font-weight:300;line-height:.7;color:rgba(201,168,76,.18);user-select:none;}
+.id-qtext{font-family:'Cormorant Garamond',serif;font-size:clamp(21px,2.7vw,33px);font-weight:300;font-style:italic;line-height:1.45;color:var(--cream);margin-bottom:18px;}
+.id-qtext em{color:var(--gold);font-style:normal;}
+.id-qcn{font-family:'Noto Serif SC',serif;font-size:14px;font-weight:200;letter-spacing:.3em;color:rgba(245,236,215,.32);display:block;margin-bottom:20px;}
+.id-qattr{display:flex;align-items:center;gap:12px;}
+.id-qattr-line{width:28px;height:.5px;background:var(--gold);opacity:.45;}
+.id-qattr-text{font-size:12px;letter-spacing:.16em;color:rgba(201,168,76,.55);text-transform:uppercase;}
+
+/* ════════════════════════════════════════════════════
+   04 — SPEAKERS
+   ════════════════════════════════════════════════════ */
+#speakers{background:var(--base);padding:130px 0 150px;position:relative;overflow:hidden;}
+#speakers::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2),transparent);}
+.speakers-inner{max-width:1200px;margin:0 auto;padding:0 64px;}
+.speakers-filters{display:flex;gap:8px;margin-bottom:56px;flex-wrap:wrap;}
+.filter-btn{font-family:'EB Garamond',serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:7px 18px;border:.5px solid rgba(201,168,76,.22);background:transparent;color:var(--cream-faint);cursor:pointer;transition:all .3s;}
+.filter-btn:hover,.filter-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.06);}
+.speakers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2px;margin-bottom:48px;}
+.speaker-card{position:relative;overflow:hidden;background:rgba(255,255,255,.02);border:.5px solid rgba(201,168,76,.08);cursor:pointer;transition:border-color .4s;}
+.speaker-card:hover{border-color:rgba(201,168,76,.3);}
+.speaker-card.hidden{display:none;}
+.speaker-img-wrap{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(139,26,26,.3),rgba(13,6,5,.9));}
+.speaker-initials{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(201,168,76,.25);}
+.speaker-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,6,5,.95) 0%,rgba(13,6,5,.4) 50%,transparent 100%);opacity:0;transition:opacity .4s;}
+.speaker-card:hover .speaker-overlay{opacity:1;}
+.speaker-details{position:absolute;bottom:0;left:0;right:0;padding:20px;transform:translateY(8px);transition:transform .4s;}
+.speaker-card:hover .speaker-details{transform:none;}
+.speaker-tag{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;}
+.speaker-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--cream);display:block;margin-bottom:3px;}
+.speaker-role{font-size:12px;color:var(--cream-faint);display:block;line-height:1.4;}
+.speaker-bio-hover{position:absolute;inset:0;background:rgba(13,6,5,.96);padding:24px;display:flex;flex-direction:column;justify-content:center;opacity:0;transition:opacity .4s;pointer-events:none;}
+.speaker-card:hover .speaker-bio-hover{opacity:1;pointer-events:auto;}
+.speaker-bio-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--gold);margin-bottom:8px;}
+.speaker-bio-text{font-size:13px;line-height:1.65;color:var(--cream-muted);}
+.speakers-cta{text-align:center;}
+
+/* ════════════════════════════════════════════════════
+   05 — PROGRAM / SCHEDULE
+   ════════════════════════════════════════════════════ */
+#program{background:var(--cream);color:var(--base);padding:130px 0 150px;position:relative;}
+#program::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(139,26,26,.3),transparent);}
+.program-inner{max-width:1100px;margin:0 auto;padding:0 64px;}
+.program-inner .sec-overline-rule{background:linear-gradient(to right,transparent,rgba(139,26,26,.3));}
+.program-inner .sec-overline-rule.r{background:linear-gradient(to left,transparent,rgba(139,26,26,.3));}
+.program-inner .sec-overline-text{color:var(--crimson);}
+.prog-date-banner{display:flex;align-items:center;justify-content:space-between;padding:20px 28px;background:var(--crimson);margin-bottom:48px;}
+.prog-date-main{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,42px);font-weight:300;color:var(--cream);letter-spacing:.04em;}
+.prog-date-sub{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,236,215,.65);}
+.prog-date-ics{font-family:'EB Garamond',serif;font-size:12px;letter-spacing:.16em;color:var(--gold);text-decoration:none;text-transform:uppercase;border:.5px solid rgba(201,168,76,.4);padding:8px 16px;transition:all .3s;}
+.prog-date-ics:hover{background:var(--gold);color:var(--base);}
+.prog-sessions{display:grid;grid-template-columns:1fr 1fr;gap:0 2px;margin-bottom:40px;}
+.prog-col-label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--crimson);padding:0 0 18px 0;border-bottom:1.5px solid var(--crimson);margin-bottom:0;}
+.prog-session{border-bottom:.5px solid rgba(139,26,26,.15);cursor:pointer;transition:background .25s;}
+.prog-session:hover{background:rgba(139,26,26,.04);}
+.prog-session-head{display:flex;align-items:flex-start;gap:16px;padding:20px 0;}
+.prog-time{font-size:12px;letter-spacing:.1em;color:var(--crimson);min-width:90px;padding-top:2px;font-style:italic;}
+.prog-session-body{flex:1;}
+.prog-session-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--base);display:block;margin-bottom:4px;}
+.prog-session-cn{font-family:'Noto Serif SC',serif;font-size:11px;font-weight:200;letter-spacing:.25em;color:var(--crimson);display:block;margin-bottom:6px;opacity:.7;}
+.prog-session-meta{font-size:13px;color:rgba(13,6,5,.55);line-height:1.5;}
+.prog-session-tag{display:inline-block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:2px 8px;background:rgba(139,26,26,.1);color:var(--crimson);margin-top:6px;}
+.prog-session-expand{width:18px;height:18px;border:.5px solid rgba(139,26,26,.3);display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--crimson);flex-shrink:0;margin-top:3px;transition:transform .3s;}
+.prog-session.open .prog-session-expand{transform:rotate(45deg);}
+.prog-session-detail{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease;}
+.prog-session.open .prog-session-detail{max-height:200px;padding-bottom:16px;}
+.prog-session-detail p{font-size:14px;line-height:1.68;color:rgba(13,6,5,.65);padding-left:106px;}
+.prog-lunch-banner{background:rgba(139,26,26,.06);border:.5px solid rgba(139,26,26,.12);padding:18px 24px;display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;}
+.prog-lunch-label{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--crimson);}
+.prog-lunch-time{font-size:13px;letter-spacing:.14em;color:rgba(13,6,5,.5);text-transform:uppercase;}
+
+/* ════════════════════════════════════════════════════
+   06 — WORLD MAP / GLOBAL NETWORK
+   ════════════════════════════════════════════════════ */
+#network{background:var(--base);padding:70px 0 0;position:relative;overflow:hidden;}
+#network::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2),transparent);}
+.network-inner{max-width:1200px;margin:0 auto;padding:0 64px;}
+.network-intro{display:grid;grid-template-columns:1fr 1fr;gap:0 80px;align-items:end;margin-bottom:56px;}
+.network-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5.5vw,72px);font-weight:300;line-height:1;color:var(--cream);}
+.network-headline em{font-style:italic;color:var(--gold);}
+.network-body{font-size:clamp(16px,1.6vw,19px);line-height:1.75;color:var(--cream-muted);}
+#mapCanvas{width:100%;height:400px;display:block;border:.5px solid rgba(201,168,76,.1);margin-bottom:0;}
+.network-cities{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:56px;}
+.city-chip{font-size:11px;letter-spacing:.18em;text-transform:uppercase;padding:5px 12px;border:.5px solid rgba(201,168,76,.2);color:var(--cream-faint);transition:all .35s;cursor:default;}
+.city-chip:hover,.city-chip.active{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.07);}
+.network-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:.5px solid rgba(201,168,76,.12);}
+.net-stat{padding:32px 28px;text-align:center;}
+.net-stat-num{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,4vw,54px);font-weight:300;color:var(--gold);display:block;margin-bottom:6px;}
+.net-stat-label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-muted);}
+
+/* ════════════════════════════════════════════════════
+   07 — CASE COMPETITION
+   ════════════════════════════════════════════════════ */
+#competition{position:relative;overflow:hidden;background:linear-gradient(to bottom,#0D0605,#3D1A00 40%,#2A0E00 70%,#0D0605);padding:80px 0 150px;}
+#competition::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");background-size:200px;opacity:.4;pointer-events:none;mix-blend-mode:overlay;}
+.comp-inner{max-width:1100px;margin:0 auto;padding:0 64px;position:relative;z-index:2;}
+.comp-layout{display:grid;grid-template-columns:1fr 1fr;gap:0 80px;align-items:start;}
+.comp-left{}
+.comp-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5.5vw,70px);font-weight:300;color:var(--cream);margin-bottom:24px;line-height:1.05;}
+.comp-headline em{font-style:italic;color:var(--gold-light);}
+.comp-body{font-size:clamp(16px,1.6vw,19px);line-height:1.75;color:var(--cream-muted);margin-bottom:36px;}
+.comp-timeline{margin-bottom:40px;}
+.comp-tl-item{display:flex;gap:20px;align-items:flex-start;padding:16px 0;border-bottom:.5px solid rgba(201,168,76,.1);}
+.comp-tl-item:first-child{border-top:.5px solid rgba(201,168,76,.1);}
+.comp-tl-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:5px;}
+.comp-tl-date{font-size:12px;letter-spacing:.14em;color:rgba(201,168,76,.6);text-transform:uppercase;min-width:120px;}
+.comp-tl-desc{font-size:15px;color:var(--cream-muted);}
+.comp-right{padding-top:8px;}
+.comp-trophy-wrap{display:flex;justify-content:center;margin-bottom:36px;}
+.comp-trophy{width:180px;height:180px;}
+.comp-prizes{display:flex;flex-direction:column;gap:2px;}
+.comp-prize{display:flex;align-items:center;gap:16px;padding:18px 20px;background:rgba(255,255,255,.025);border:.5px solid rgba(201,168,76,.08);transition:border-color .3s,background .3s;}
+.comp-prize:hover{border-color:rgba(201,168,76,.25);background:rgba(201,168,76,.04);}
+.comp-prize-rank{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:rgba(201,168,76,.35);min-width:48px;line-height:1;}
+.comp-prize-info{flex:1;}
+.comp-prize-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--cream);display:block;margin-bottom:3px;}
+.comp-prize-desc{font-size:13px;color:var(--cream-faint);}
+.comp-prize-medal{font-size:22px;}
+.comp-prize:nth-child(1) .comp-prize-rank{color:rgba(201,168,76,.8);}
+.comp-prize:nth-child(2) .comp-prize-rank{color:rgba(192,192,192,.6);}
+.comp-prize:nth-child(3) .comp-prize-rank{color:rgba(205,127,50,.55);}
+
+/* ════════════════════════════════════════════════════
+   08 — PARTNERS & SPONSORS
+   ════════════════════════════════════════════════════ */
+#partners{background:#F0E8D4;padding:110px 0 130px;position:relative;overflow:hidden;}
+#partners::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(139,26,26,.25),transparent);}
+.partners-inner{max-width:1200px;margin:0 auto;padding:0 64px;}
+.partners-inner .sec-overline-text{color:var(--crimson);}
+.partners-inner .sec-overline-rule{background:linear-gradient(to right,transparent,rgba(139,26,26,.28));}
+.partners-inner .sec-overline-rule.r{background:linear-gradient(to left,transparent,rgba(139,26,26,.28));}
+.partners-tier{margin-bottom:56px;}
+.partners-tier-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--crimson);opacity:.6;margin-bottom:24px;display:block;}
+.partners-logos{display:flex;align-items:center;gap:0;flex-wrap:wrap;}
+.partner-logo-cell{padding:28px 36px;border:.5px solid rgba(139,26,26,.12);display:flex;align-items:center;justify-content:center;min-width:180px;transition:background .3s,border-color .3s;}
+.partner-logo-cell:hover{background:rgba(139,26,26,.04);border-color:rgba(139,26,26,.25);}
+.partner-logo-text{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.12em;color:rgba(13,6,5,.5);text-transform:uppercase;font-weight:400;}
+.partner-logo-cell.featured .partner-logo-text{font-size:18px;color:rgba(13,6,5,.7);}
+.marquee-track{overflow:hidden;margin-bottom:56px;}
+.marquee-inner{display:flex;gap:0;animation:marquee 30s linear infinite;}
+.marquee-inner:hover{animation-play-state:paused;}
+.marquee-item{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.18em;color:rgba(13,6,5,.35);text-transform:uppercase;padding:0 36px;white-space:nowrap;border-right:.5px solid rgba(139,26,26,.1);flex-shrink:0;}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.partners-cta{text-align:center;padding:40px;border:.5px solid rgba(139,26,26,.15);}
+.partners-cta h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--base);margin-bottom:10px;}
+.partners-cta p{font-size:16px;color:rgba(13,6,5,.55);margin-bottom:24px;}
+.btn-crimson{font-family:'EB Garamond',serif;font-size:14px;letter-spacing:.16em;color:var(--cream);background:var(--crimson);padding:13px 36px;border:none;cursor:pointer;text-decoration:none;text-transform:uppercase;display:inline-block;transition:background .3s,transform .2s;}
+.btn-crimson:hover{background:var(--crimson-mid);transform:translateY(-2px);}
+
+/* ════════════════════════════════════════════════════
+   09 — FOOTER
+   ════════════════════════════════════════════════════ */
+#footer{background:#080304;padding:72px 0 40px;position:relative;}
+#footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,.2),transparent);}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 64px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:0 48px;margin-bottom:56px;}
+.footer-brand{}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:16px;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:14px;}
+.footer-tagline{font-family:'Noto Serif SC',serif;font-size:13px;font-weight:200;letter-spacing:.22em;color:var(--cream-faint);margin-bottom:20px;}
+.footer-desc{font-size:14px;line-height:1.7;color:rgba(245,236,215,.35);max-width:280px;}
+.footer-col-title{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:block;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.footer-links a{font-size:14px;color:rgba(245,236,215,.38);text-decoration:none;transition:color .3s;letter-spacing:.05em;}
+.footer-links a:hover{color:var(--cream-muted);}
+.footer-social{display:flex;gap:10px;margin-bottom:16px;}
+.social-btn{width:36px;height:36px;border:.5px solid rgba(201,168,76,.2);display:flex;align-items:center;justify-content:center;font-size:13px;color:rgba(201,168,76,.5);text-decoration:none;transition:all .3s;}
+.social-btn:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.07);}
+.wechat-qr{width:80px;height:80px;background:rgba(255,255,255,.06);border:.5px solid rgba(201,168,76,.15);display:flex;align-items:center;justify-content:center;}
+.wechat-qr-label{font-size:9px;letter-spacing:.12em;color:rgba(201,168,76,.4);text-transform:uppercase;margin-top:6px;text-align:center;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;padding-top:28px;border-top:.5px solid rgba(201,168,76,.08);}
+.footer-copy{font-size:12px;color:rgba(245,236,215,.2);letter-spacing:.06em;}
+.footer-cambridge{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:.1em;color:rgba(201,168,76,.35);}
+.footer-back-top{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(201,168,76,.4);text-decoration:none;transition:color .3s;display:flex;align-items:center;gap:8px;}
+.footer-back-top:hover{color:var(--gold);}
+
+/* ════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════ */
+@media(max-width:1024px){
+  .id-theme{grid-template-columns:1fr;gap:50px 0;}
+  .id-calli{flex-direction:row;width:100%;justify-content:center;}
+  .id-pillars{grid-template-columns:1fr;}
+  .pillar{border-right:none;border-bottom:.5px solid rgba(201,168,76,.1);}
+  .id-stats{grid-template-columns:repeat(2,1fr);}
+  .id-quote{grid-template-columns:52px 1fr;gap:0 20px;}
+  .network-intro{grid-template-columns:1fr;}
+  .comp-layout{grid-template-columns:1fr;}
+  .comp-right{padding-top:40px;}
+  .prog-sessions{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:40px;}
+  .footer-brand{grid-column:1/-1;}
+}
+@media(max-width:768px){
+  .id-inner,.speakers-inner,.program-inner,.network-inner,.comp-inner,.partners-inner,.footer-inner{padding:0 24px;}
+  #identity,.#speakers,#program,#network,#competition,#partners,#footer{padding:90px 0 110px;}
+  .speakers-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));}
+  .network-stats{grid-template-columns:1fr;}
+  .prog-sessions{gap:0;}
+  .footer-grid{grid-template-columns:1fr;gap:32px;}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center;}
+  .partners-logos{justify-content:center;}
+}
+
+/* ════════════════════════════════════════════════════
+   SECTION BOUNDARY TRANSITIONS — pseudo-element fades
+   Each section's ::after gradient bleeds its bg color
+   into the next section's color at the bottom edge.
+   overflow:visible lets the stacking work cleanly.
+   ════════════════════════════════════════════════════ */
+#speakers,#program,#network,#competition,#partners{overflow:visible;position:relative;}
+
+/* Identity (crimson) — 60px bottom fade to black */
+#identity::after{
+  content:'';position:absolute;bottom:0;left:0;width:100%;
+  height:60px;background:linear-gradient(to bottom,transparent,#0D0605);
+  pointer-events:none;z-index:4;
+}
+/* Speakers (black) → Program (cream) — extended warm-toned bridge */
+#speakers::after{
+  content:'';position:absolute;bottom:0;left:0;width:100%;
+  height:200px;
+  background:linear-gradient(
+    to bottom,
+    transparent,
+    rgba(13,13,13,.95) 20%,
+    rgba(40,25,15,.7) 50%,
+    rgba(120,80,40,.2) 75%,
+    #F0EBE0
+  );
+  pointer-events:none;z-index:10;
+}
+/* Program (cream) — top ease-in from warm bridge tone */
+#program::before{
+  content:'';position:absolute;top:0;left:0;width:100%;
+  height:120px;
+  background:linear-gradient(
+    to bottom,
+    rgba(230,215,190,.4),
+    transparent
+  );
+  pointer-events:none;z-index:1;
+}
+@media(max-width:768px){
+  #speakers::after{height:120px;}
+  #program::before{height:72px;}
+}
+
+/* Program → Network: short crisp fade, gradient already handles the dark */
+#program::after{
+  content:'';position:absolute;bottom:0;left:0;width:100%;
+  height:60px;background:linear-gradient(to bottom,transparent,#0D0605);
+  pointer-events:none;z-index:10;
+}
+/* Network (black) → Competition (dark brown) */
+#network::after{
+  content:'';position:absolute;bottom:0;left:0;width:100%;
+  height:60px;background:linear-gradient(to bottom,transparent,#1C1208);
+  pointer-events:none;z-index:10;
+}
+/* Competition (dark brown) → Partners (cream) */
+#competition::after{
+  content:'';position:absolute;bottom:0;left:0;width:100%;
+  height:120px;background:linear-gradient(to bottom,transparent,#F0E8D4);
+  pointer-events:none;z-index:10;
+}
+/* Partners (cream) → Footer (black) */
+#partners::after{
+  content:'';position:absolute;bottom:0;left:0;width:100%;
+  height:120px;background:linear-gradient(to bottom,transparent,#080304);
+  pointer-events:none;z-index:10;
+}
+@media(max-width:768px){
+  #speakers::after,#program::after,#network::after,
+  #competition::after,#partners::after{height:80px;}
+  #identity::after{height:40px;}
+}
+
+/* ════════════════════════════════════════════════════
+   SECTION WATERMARKS — Chinese characters on dark/crimson
+   ════════════════════════════════════════════════════ */
+.section-watermark{
+  position:absolute;font-family:'Noto Serif SC',serif;
+  font-size:clamp(160px,18vw,280px);font-weight:200;line-height:1;
+  color:var(--gold);pointer-events:none;user-select:none;opacity:.09;
+  letter-spacing:-.02em;overflow:hidden;
+}
+.section-watermark.top-right{top:60px;right:-10px;z-index:1;}
+.section-watermark.bottom-left{bottom:40px;left:-10px;z-index:1;}
+
+/* ════════════════════════════════════════════════════
+   STATS DARK BAND within identity (black bg island)
+   ════════════════════════════════════════════════════ */
+.id-stats-band{
+  margin:0 -64px 90px;
+  padding:44px 64px;
+  background:linear-gradient(to bottom,rgba(6,1,1,.82) 0%,rgba(13,6,5,.94) 40%,rgba(13,6,5,.94) 60%,rgba(6,1,1,.82) 100%);
+  position:relative;z-index:3;
+}
+.id-stats-band .id-stats{margin-bottom:0;}
+@media(max-width:768px){.id-stats-band{margin:0 -24px 60px;padding:32px 24px;}}
+
+/* ════════════════════════════════════════════════════
+   SPEAKER CARD ENHANCEMENTS
+   ════════════════════════════════════════════════════ */
+#speakers .speaker-card{border:1px solid rgba(201,168,76,.32);}
+#speakers .speaker-card:hover{border-color:rgba(201,168,76,.8);}
+
+/* Large faded initials as background watermark text */
+.speaker-img-wrap .speaker-initials{
+  font-size:120px;
+  color:rgba(245,236,215,.06);
+  z-index:0;
+}
+/* Diagonal linen texture overlay at 15% opacity */
+.speaker-img-wrap{isolation:isolate;}
+.speaker-img-wrap::before{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(-45deg,rgba(245,236,215,.07) 0,rgba(245,236,215,.07) 1px,transparent 0,transparent 50%),
+    repeating-linear-gradient(45deg,rgba(245,236,215,.04) 0,rgba(245,236,215,.04) 1px,transparent 0,transparent 50%);
+  background-size:5px 5px;
+  opacity:.9;
+}
+/* Gold gradient fade at bottom where name appears */
+.speaker-img-wrap::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;
+  height:90px;
+  background:linear-gradient(to top,rgba(201,168,76,.16) 0%,rgba(201,168,76,.06) 40%,transparent 100%);
+  z-index:2;pointer-events:none;
+}
+/* Ensure overlay and details stack above new pseudo-elements */
+.speaker-overlay{z-index:3;}
+.speaker-details{z-index:4;}
+.speaker-bio-hover{z-index:5;}
+
+/* ════════════════════════════════════════════════════
+   CITY CHIPS — borderless flowing list with · separator
+   ════════════════════════════════════════════════════ */
+.network-cities{gap:0;}
+.network-cities .city-chip{
+  border:none;padding:4px 0;background:transparent;
+  letter-spacing:.22em;
+}
+.network-cities .city-chip::after{
+  content:'·';color:rgba(201,168,76,.55);
+  margin:0 10px;font-size:14px;vertical-align:middle;
+}
+.network-cities .city-chip:last-child::after{display:none;}
+.network-cities .city-chip:hover,
+.network-cities .city-chip.active{border:none;background:transparent;}
+
+/* ════════════════════════════════════════════════════
+   COMPETITION — dark brown, bottom bleeds toward crimson
+   ════════════════════════════════════════════════════ */
+#competition{background:linear-gradient(to bottom,#1C1208 0%,#1C1208 80%,#3D0A0A 100%);}
+
+/* Suppress legacy 1px ::before border lines */
+#speakers::before,#program::before,#network::before,
+#partners::before,#footer::before{display:none;}
+
+/* ════════════════════════════════════════════════════
+   CUSTOM CURSOR — desktop / pointer:fine only
+   ════════════════════════════════════════════════════ */
+@media(pointer:fine){*{cursor:none !important;}}
+#cursor-fx,#cursor-dot{
+  position:fixed;inset:0;width:100vw;height:100vh;
+  pointer-events:none;z-index:9998;
+}
+#cursor-dot{z-index:9999;}
+
+/* ════════════════════════════════════════════════════
+   PROGRAM + PARTNERS — crimson rebrand
+   Matching Forum Identity palette, language & rhythm
+   ════════════════════════════════════════════════════ */
+
+/* ── Program: crimson gradient — bottom stays deeper crimson longer ── */
+#program{
+  background:linear-gradient(to bottom,
+    #0D0605 0%,#1A0808 6%,
+    var(--crimson-deep) 20%,var(--crimson) 48%,
+    var(--crimson-mid) 70%,var(--crimson-deep) 88%,
+    #2A0808 96%,#0D0605 100%
+  );
+  color:var(--cream);
+  padding-bottom:60px;
+}
+/* Section overline — gold rules */
+.program-inner .sec-overline-rule{background:linear-gradient(to right,transparent,rgba(201,168,76,.35));}
+.program-inner .sec-overline-rule.r{background:linear-gradient(to left,transparent,rgba(201,168,76,.35));}
+.program-inner .sec-overline-text{color:var(--gold);}
+/* Date banner — dark glass on crimson */
+.prog-date-banner{background:rgba(0,0,0,.28);border:.5px solid rgba(201,168,76,.2);}
+.prog-date-main{color:var(--cream);}
+.prog-date-sub{color:rgba(245,236,215,.6);}
+.prog-date-ics{color:var(--gold);border-color:rgba(201,168,76,.38);}
+.prog-date-ics:hover{background:var(--gold);color:var(--base);}
+/* Column labels */
+.prog-col-label{color:var(--gold);border-bottom-color:rgba(201,168,76,.32);}
+/* Sessions */
+.prog-session{border-bottom-color:rgba(201,168,76,.1);}
+.prog-session:hover{background:rgba(201,168,76,.04);}
+.prog-time{color:rgba(201,168,76,.7);}
+.prog-session-title{color:var(--cream);}
+.prog-session-cn{color:rgba(201,168,76,.5);}
+.prog-session-meta{color:rgba(245,236,215,.48);}
+.prog-session-tag{background:rgba(201,168,76,.1);color:var(--gold);}
+.prog-session-expand{border-color:rgba(201,168,76,.28);color:var(--gold);}
+.prog-session-detail p{color:rgba(245,236,215,.52);}
+/* Lunch banner */
+.prog-lunch-banner{background:rgba(0,0,0,.2);border-color:rgba(201,168,76,.13);}
+.prog-lunch-label{color:var(--cream);}
+.prog-lunch-time{color:rgba(245,236,215,.48);}
+
+/* ── Partners: opens at crimson-deep to match competition::after endpoint ── */
+#partners{
+  background:linear-gradient(to bottom,
+    #5A0E0E 0%,
+    var(--crimson) 28%,
+    var(--crimson-mid) 62%,
+    var(--crimson-deep) 86%,
+    #1A0808 96%,#0D0605 100%
+  );
+}
+/* Section overline — gold rules */
+.partners-inner .sec-overline-text{color:var(--gold);}
+.partners-inner .sec-overline-rule{background:linear-gradient(to right,transparent,rgba(201,168,76,.35));}
+.partners-inner .sec-overline-rule.r{background:linear-gradient(to left,transparent,rgba(201,168,76,.35));}
+/* Tier labels */
+.partners-tier-label{color:rgba(201,168,76,.55);}
+/* Logo cells */
+.partner-logo-cell{border-color:rgba(201,168,76,.14);background:rgba(0,0,0,.15);}
+.partner-logo-cell:hover{background:rgba(201,168,76,.07);border-color:rgba(201,168,76,.35);}
+.partner-logo-text{color:rgba(245,236,215,.6);}
+.partner-logo-cell.featured .partner-logo-text{color:rgba(245,236,215,.85);}
+/* Marquee */
+.marquee-item{color:rgba(245,236,215,.3);border-right-color:rgba(201,168,76,.1);}
+/* Partners CTA */
+.partners-cta{border-color:rgba(201,168,76,.18);background:rgba(0,0,0,.16);}
+.partners-cta h3{color:var(--cream);}
+.partners-cta p{color:rgba(245,236,215,.52);}
+
+/* ── Transition endpoint corrections ──
+   Program + Partners now start and end with #0D0605 (from their
+   own crimson gradient), so adjacent ::after fades target black. */
+/* Speakers → Program: both dark, route cleanly to black */
+#speakers::after{
+  background:linear-gradient(
+    to bottom,
+    transparent,
+    rgba(13,13,13,.95) 25%,
+    rgba(20,8,8,.9) 60%,
+    #0D0605 100%
+  );
+}
+/* Competition → Partners: warm brown melts into crimson-deep, no black band */
+#competition::after{
+  background:linear-gradient(
+    to bottom,
+    transparent,
+    rgba(90,14,14,.35) 50%,
+    #5A0E0E 100%
+  );
+}
+/* Partners → Footer: partners ends black, footer is #080304 — seamless */
+#partners::after{
+  background:linear-gradient(to bottom,transparent,#080304);
+}
+</style>
+</head>
+<body>
+<canvas id="cursor-fx"></canvas>
+<canvas id="cursor-dot"></canvas>
+
+<!-- ════════════════════════════════════════════
+     01 — NAVBAR
+     ════════════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="nav-logo">CCBF<span>·</span>剑桥中国经贸论坛</div>
+  <ul class="nav-links">
+    <li><a href="#identity">About</a></li>
+    <li><a href="#speakers">Speakers</a></li>
+    <li><a href="#program">Program</a></li>
+    <li><a href="#partners">Partners</a></li>
+    <li><a href="#competition">Competition</a></li>
+  </ul>
+  <a href="#footer" class="nav-cta">Register</a>
+  <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- ════════════════════════════════════════════
+     02 — HERO
+     ════════════════════════════════════════════ -->
+<section id="hero">
+  <canvas id="particleCanvas"></canvas>
+
+  <div class="hero-content">
+    <div style="position:relative"><div class="hero-phase-label" id="phaseLabel">Network</div></div>
+    <div class="hero-edition">2026 Cambridge China Business Forum</div>
+    <div class="hero-title-wrap"><h1 class="hero-title"><em>Innovating</em><br>Together</h1></div>
+    <div class="hero-divider"></div>
+    <div class="hero-chinese">橋 接 未 来 &nbsp;·&nbsp; 至 善 新 创</div>
+    <div class="hero-tagline">Sharing global insights: innovating adaptive autonomous operation</div>
+    <div class="hero-meta">
+      <span>23 May 2026</span><div class="hero-meta-sep"></div>
+      <span>Judge Business School</span><div class="hero-meta-sep"></div>
+      <span>University of Cambridge</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#footer" class="btn-gold">Register Now</a>
+      <a href="#program" class="btn-outline">View Program</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ════════════════════════════════════════════
+     03 — FORUM IDENTITY
+     ════════════════════════════════════════════ -->
+<section id="identity">
+  <div class="cloud-layer" id="cloudLayer"></div>
+  <div class="section-watermark bottom-left">創</div>
+  <div class="id-inner">
+    <div class="sec-overline reveal" data-reveal>
+      <div class="sec-overline-rule"></div>
+      <span class="sec-overline-text">Forum Identity · 论坛精神</span>
+      <div class="sec-overline-rule r"></div>
+    </div>
+    <div class="id-theme">
+      <div>
+        <h2 class="id-headline reveal" data-reveal><em>Innovating</em><br>Together<span class="cn-sub">橋接未来 &nbsp;·&nbsp; 至善新创</span></h2>
+        <p class="id-body reveal reveal-delay-1" data-reveal>The Third Cambridge China Business Forum brings together <strong>pioneers, scholars and entrepreneurs</strong> at the nexus of Eastern innovation and Western enterprise. We believe that the most enduring solutions emerge not from isolation, but from the meeting of <strong>distinct perspectives across cultures</strong> — bridging futures through dialogue, discovery and shared ambition.</p>
+      </div>
+      <div class="id-calli reveal reveal-delay-2" data-reveal data-calli>
+        <div class="calli-char">
+          <span class="calli-glyph">創</span>
+          <div class="calli-pin">chuàng</div><div class="calli-rule" style="margin:.5rem auto;"></div><div class="calli-name">Innovate</div>
+        </div>
+        <div class="calli-rule"></div>
+        <div class="calli-char">
+          <span class="calli-glyph">合</span>
+          <div class="calli-pin">hé</div><div class="calli-rule" style="margin:.5rem auto;"></div><div class="calli-name">Together</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pillars-label reveal" data-reveal>The Three Pillars · 三大支柱</div>
+    <div class="id-pillars">
+      <div class="pillar reveal" data-reveal>
+        <span class="pillar-num">01</span>
+        <div class="pillar-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="20" r="9" stroke="rgba(201,168,76,.45)" stroke-width=".8"/><path d="M19 29L29 29M20.5 33L27.5 33" stroke="rgba(201,168,76,.6)" stroke-width="1" stroke-linecap="round"/><path d="M24 8L24 5M33.5 11.5L35.6 9.4M37 20L40 20M14.5 11.5L12.4 9.4M11 20L8 20" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/><path d="M20 20C20 17.8 21.8 16 24 16C26.2 16 28 17.8 28 20" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg></div>
+        <span class="pillar-en">Innovation</span><span class="pillar-cn">创 新</span>
+        <p class="pillar-desc">Exploring the frontiers of AI, autonomous systems and deep tech where Chinese ingenuity meets global ambition — shaping the industries of tomorrow.</p>
+      </div>
+      <div class="pillar reveal reveal-delay-1" data-reveal>
+        <span class="pillar-num">02</span>
+        <div class="pillar-icon"><svg viewBox="0 0 48 48" fill="none"><path d="M8 14C8 11.8 9.8 10 12 10L28 10C30.2 10 32 11.8 32 14L32 24C32 26.2 30.2 28 28 28L16 28L10 34L10 28C8.9 28 8 27.1 8 26Z" stroke="rgba(201,168,76,.55)" stroke-width="1" fill="rgba(201,168,76,.04)"/><circle cx="16" cy="19" r="1.2" fill="#C9A84C"/><circle cx="20" cy="19" r="1.2" fill="#C9A84C"/><circle cx="24" cy="19" r="1.2" fill="#C9A84C"/></svg></div>
+        <span class="pillar-en">Dialogue</span><span class="pillar-cn">对 话</span>
+        <p class="pillar-desc">Fostering candid exchange between China's most dynamic entrepreneurs and Cambridge's global network of scholars, investors and policymakers.</p>
+      </div>
+      <div class="pillar reveal reveal-delay-2" data-reveal>
+        <span class="pillar-num">03</span>
+        <div class="pillar-icon"><svg viewBox="0 0 48 48" fill="none"><circle cx="18" cy="24" r="9" stroke="rgba(201,168,76,.5)" stroke-width="1"/><circle cx="30" cy="24" r="9" stroke="rgba(201,168,76,.5)" stroke-width="1"/><circle cx="18" cy="24" r="2" fill="rgba(201,168,76,.3)"/><circle cx="30" cy="24" r="2" fill="rgba(201,168,76,.3)"/><circle cx="24" cy="24" r="2.5" fill="#C9A84C"/></svg></div>
+        <span class="pillar-en">Partnership</span><span class="pillar-cn">合 作</span>
+        <p class="pillar-desc">Building enduring connections between East and West — creating the venture capital ecosystem, joint ventures and collaborations that define the next decade.</p>
+      </div>
+    </div>
+
+    <div class="id-stats-band">
+      <div class="id-stats reveal" data-reveal data-stats>
+        <div class="stat-item"><span class="stat-num" data-target="200">0</span><span class="stat-en">Attendees<span class="stat-suf">+</span></span><span class="stat-cn">出席者</span></div>
+        <div class="stat-item"><span class="stat-num" data-target="15">0</span><span class="stat-en">Countries<span class="stat-suf">+</span></span><span class="stat-cn">国家</span></div>
+        <div class="stat-item"><span class="stat-num" data-target="40">0</span><span class="stat-en">Speakers<span class="stat-suf">+</span></span><span class="stat-cn">演讲者</span></div>
+        <div class="stat-item"><span class="stat-num" data-target="3">0</span><span class="stat-en">Editions</span><span class="stat-cn">届</span></div>
+      </div>
+    </div>
+
+    <div class="id-quote reveal" data-reveal>
+      <div class="id-qmark">"</div>
+      <div>
+        <p class="id-qtext">Standing on the shoulders of Cambridge's <em>700-year tradition</em> of inquiry, we look East — not as observers, but as <em>partners in building</em> the future.</p>
+        <span class="id-qcn">立足剑桥，面向世界，共创未来</span>
+        <div class="id-qattr"><div class="id-qattr-line"></div><span class="id-qattr-text">CCBF Founding Statement · 论坛创立宣言</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cloud SVG defs (hidden) -->
+<svg style="display:none">
+  <symbol id="cloud-a" viewBox="0 0 420 180"><g fill="none"><path d="M60,140 C40,140 20,125 20,105 C20,88 32,75 48,72 C45,65 46,56 52,50 C60,42 72,40 82,45 C88,28 104,16 124,16 C148,16 168,34 170,58 C178,52 188,48 200,48 C228,48 250,70 250,98 C272,118 272,132 246,158 L70,158" stroke="rgba(201,168,76,0.55)" stroke-width="1.2"/><path d="M90,100 C95,88 110,84 122,90 C128,76 142,70 156,76 C162,68 174,66 182,72" stroke="rgba(201,168,76,.3)" stroke-width=".8" stroke-dasharray="3 2"/></g></symbol>
+  <symbol id="cloud-b" viewBox="0 0 280 120"><g fill="none"><path d="M40,90 C25,90 12,78 12,64 C12,52 20,42 32,40 C30,34 31,26 36,21 C43,14 54,12 62,17 C67,5 80,0 95,0 C114,0 130,14 132,34 C138,30 146,28 155,28 C172,28 186,42 186,60 C186,78 172,92 155,92 Z" stroke="rgba(201,168,76,0.45)" stroke-width="1"/></g></symbol>
+  <symbol id="cloud-c" viewBox="0 0 320 80"><g fill="none"><path d="M20,55 C10,55 2,47 2,38 C14,17 19,7 25,2 C43,14 54,12 62,17 C80,23 88,20 104,24 C116,30 122,42 118,54 C148,52 190,60 265,50 C300,44 315,48" stroke="rgba(201,168,76,0.4)" stroke-width=".9" stroke-linecap="round"/></g></symbol>
+</svg>
+
+
+<!-- ════════════════════════════════════════════
+     04 — SPEAKERS
+     ════════════════════════════════════════════ -->
+<section id="speakers">
+  <div class="section-watermark top-right">天</div>
+  <div class="speakers-inner">
+    <div class="sec-overline reveal" data-reveal>
+      <div class="sec-overline-rule"></div>
+      <span class="sec-overline-text">Speakers · 演讲嘉宾</span>
+      <div class="sec-overline-rule r"></div>
+    </div>
+    <div class="speakers-filters reveal" data-reveal>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="keynote">Keynote</button>
+      <button class="filter-btn" data-filter="panelist">Panelists</button>
+      <button class="filter-btn" data-filter="moderator">Moderators</button>
+    </div>
+    <div class="speakers-grid" id="speakersGrid">
+      <!-- cards injected by JS -->
+    </div>
+    <div class="speakers-cta reveal" data-reveal>
+      <a href="#" class="btn-outline">Full Speaker Lineup →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     05 — PROGRAM
+     ════════════════════════════════════════════ -->
+<section id="program">
+  <div class="program-inner">
+    <div class="sec-overline reveal" data-reveal>
+      <div class="sec-overline-rule"></div>
+      <span class="sec-overline-text">Program · 论坛日程</span>
+      <div class="sec-overline-rule r"></div>
+    </div>
+    <div class="prog-date-banner reveal" data-reveal>
+      <div>
+        <div class="prog-date-main">Saturday, 23 May 2026</div>
+        <div class="prog-date-sub">Judge Business School, University of Cambridge &nbsp;·&nbsp; 10:30 — 18:30</div>
+      </div>
+      <a href="#" class="prog-date-ics">+ Add to Calendar</a>
+    </div>
+
+    <div class="prog-sessions" id="progSessions">
+      <div>
+        <div class="prog-col-label reveal" data-reveal>Morning · 上午</div>
+        <div id="morningCol"></div>
+        <div class="prog-lunch-banner reveal" data-reveal>
+          <span class="prog-lunch-label">Lunch · 午宴</span>
+          <span class="prog-lunch-time">12:40 — 13:30</span>
+        </div>
+      </div>
+      <div>
+        <div class="prog-col-label reveal" data-reveal>Afternoon · 下午</div>
+        <div id="afternoonCol"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     06 — GLOBAL NETWORK
+     ════════════════════════════════════════════ -->
+<section id="network">
+  <div class="section-watermark bottom-left">桥</div>
+  <div class="network-inner">
+    <div class="sec-overline reveal" data-reveal>
+      <div class="sec-overline-rule"></div>
+      <span class="sec-overline-text">Global Network · 全球连接</span>
+      <div class="sec-overline-rule r"></div>
+    </div>
+    <div class="network-intro">
+      <h2 class="network-headline reveal" data-reveal><em>Bridging</em><br>East &amp; West</h2>
+      <p class="network-body reveal reveal-delay-1" data-reveal>From Cambridge to Beijing, Shanghai to San Francisco — the Forum connects the world's most ambitious innovators across a network that spans every major business hub on the planet.</p>
+    </div>
+    <canvas id="mapCanvas"></canvas>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     07 — CASE COMPETITION
+     ════════════════════════════════════════════ -->
+<section id="competition">
+  <div class="section-watermark top-right">創</div>
+  <div class="comp-inner">
+    <div class="sec-overline reveal" data-reveal>
+      <div class="sec-overline-rule"></div>
+      <span class="sec-overline-text">Case Competition · 案例竞赛</span>
+      <div class="sec-overline-rule r"></div>
+    </div>
+    <div class="comp-layout">
+      <div class="comp-left">
+        <h2 class="comp-headline reveal" data-reveal><em>Prove</em> Your<br>Strategic Edge</h2>
+        <p class="comp-body reveal reveal-delay-1" data-reveal>The CCBF Case Competition challenges teams to develop innovative solutions to real business challenges at the China–UK interface. Finals take place live on the Forum stage before a panel of industry judges.</p>
+        <div class="comp-timeline reveal reveal-delay-2" data-reveal>
+          <div class="comp-tl-item"><div class="comp-tl-dot"></div><div class="comp-tl-date">1 Mar 2026</div><div class="comp-tl-desc">Registration opens</div></div>
+          <div class="comp-tl-item"><div class="comp-tl-dot"></div><div class="comp-tl-date">30 Apr 2026</div><div class="comp-tl-desc">Case brief released to teams</div></div>
+          <div class="comp-tl-item"><div class="comp-tl-dot"></div><div class="comp-tl-date">15 May 2026</div><div class="comp-tl-desc">Submissions deadline</div></div>
+          <div class="comp-tl-item"><div class="comp-tl-dot"></div><div class="comp-tl-date">23 May 2026</div><div class="comp-tl-desc">Live finals at Judge Business School (15:00–17:00)</div></div>
+        </div>
+        <a href="#" class="btn-gold reveal reveal-delay-3" data-reveal>Enter Competition</a>
+      </div>
+      <div class="comp-right">
+        <div class="comp-trophy-wrap reveal" data-reveal>
+          <svg class="comp-trophy" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="90" cy="90" r="88" stroke="rgba(201,168,76,.1)" stroke-width=".5"/>
+            <circle cx="90" cy="90" r="72" stroke="rgba(201,168,76,.07)" stroke-width=".5"/>
+            <!-- trophy cup -->
+            <path d="M60 50 L120 50 L112 95 C110 108 100 118 90 118 C80 118 70 108 68 95 Z" stroke="rgba(201,168,76,.7)" stroke-width="1.2" fill="rgba(201,168,76,.05)"/>
+            <path d="M60 50 C52 50 44 55 44 65 C44 78 54 84 66 82" stroke="rgba(201,168,76,.45)" stroke-width="1" fill="none"/>
+            <path d="M120 50 C128 50 136 55 136 65 C136 78 126 84 114 82" stroke="rgba(201,168,76,.45)" stroke-width="1" fill="none"/>
+            <path d="M80 118 L76 132 L104 132 L100 118" stroke="rgba(201,168,76,.5)" stroke-width="1" fill="rgba(201,168,76,.04)"/>
+            <path d="M68 132 L112 132" stroke="rgba(201,168,76,.6)" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- star -->
+            <path d="M90 66 L93 76 L103 76 L95 82 L98 92 L90 86 L82 92 L85 82 L77 76 L87 76 Z" fill="rgba(201,168,76,.35)" stroke="rgba(201,168,76,.6)" stroke-width=".5"/>
+            <!-- shimmer lines -->
+            <path d="M74 60 L76 58 M78 56 L80 54" stroke="rgba(201,168,76,.4)" stroke-width=".8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="comp-prizes reveal reveal-delay-1" data-reveal>
+          <div class="comp-prize"><div class="comp-prize-rank">I</div><div class="comp-prize-info"><span class="comp-prize-title">First Place</span><span class="comp-prize-desc">Trophy + £2,000 prize + mentorship</span></div><div class="comp-prize-medal">🥇</div></div>
+          <div class="comp-prize"><div class="comp-prize-rank">II</div><div class="comp-prize-info"><span class="comp-prize-title">Second Place</span><span class="comp-prize-desc">Trophy + £1,000 prize</span></div><div class="comp-prize-medal">🥈</div></div>
+          <div class="comp-prize"><div class="comp-prize-rank">III</div><div class="comp-prize-info"><span class="comp-prize-title">Third Place</span><span class="comp-prize-desc">Trophy + £500 prize</span></div><div class="comp-prize-medal">🥉</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     08 — PARTNERS
+     ════════════════════════════════════════════ -->
+<section id="partners">
+  <div class="partners-inner">
+    <div class="sec-overline reveal" data-reveal>
+      <div class="sec-overline-rule"></div>
+      <span class="sec-overline-text">Partners &amp; Sponsors · 合作伙伴</span>
+      <div class="sec-overline-rule r"></div>
+    </div>
+    <div class="partners-tier reveal" data-reveal>
+      <span class="partners-tier-label">Founding Institution</span>
+      <div class="partners-logos">
+        <div class="partner-logo-cell featured"><span class="partner-logo-text">University of Cambridge<br><small style="font-size:.7em;letter-spacing:.06em">Judge Business School</small></span></div>
+      </div>
+    </div>
+    <div class="partners-tier reveal" data-reveal>
+      <span class="partners-tier-label">Gold Partners</span>
+      <div class="partners-logos">
+        <div class="partner-logo-cell"><span class="partner-logo-text">Partner A</span></div>
+        <div class="partner-logo-cell"><span class="partner-logo-text">Partner B</span></div>
+        <div class="partner-logo-cell"><span class="partner-logo-text">Partner C</span></div>
+      </div>
+    </div>
+    <div class="partners-tier reveal" data-reveal>
+      <span class="partners-tier-label">Silver Partners</span>
+      <div class="partners-logos">
+        <div class="partner-logo-cell"><span class="partner-logo-text">Sponsor D</span></div>
+        <div class="partner-logo-cell"><span class="partner-logo-text">Sponsor E</span></div>
+        <div class="partner-logo-cell"><span class="partner-logo-text">Sponsor F</span></div>
+        <div class="partner-logo-cell"><span class="partner-logo-text">Sponsor G</span></div>
+      </div>
+    </div>
+    <div class="marquee-track reveal" data-reveal>
+      <div class="marquee-inner" id="marqueeInner"></div>
+    </div>
+    <div class="partners-cta reveal" data-reveal>
+      <h3>Become a Partner</h3>
+      <p>Connect your organisation with the leading China–UK business community</p>
+      <a href="mailto:ccbf@jbs.cam.ac.uk" class="btn-crimson">Get in Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════
+     09 — FOOTER
+     ════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Cambridge China Business Forum</div>
+        <div class="footer-tagline">桥接未来 · 至善新创</div>
+        <p class="footer-desc">The Third Annual Cambridge China Business Forum — 23 May 2026 at Judge Business School, University of Cambridge.</p>
+      </div>
+      <div>
+        <span class="footer-col-title">Navigate</span>
+        <ul class="footer-links">
+          <li><a href="#identity">About</a></li>
+          <li><a href="#speakers">Speakers</a></li>
+          <li><a href="#program">Program</a></li>
+          <li><a href="#competition">Competition</a></li>
+          <li><a href="#partners">Partners</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Information</span>
+        <ul class="footer-links">
+          <li><a href="#">Register</a></li>
+          <li><a href="#">Venue &amp; Travel</a></li>
+          <li><a href="#">Press &amp; Media</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-title">Connect</span>
+        <div class="footer-social">
+          <a href="#" class="social-btn" title="LinkedIn">in</a>
+          <a href="#" class="social-btn" title="X / Twitter">𝕏</a>
+          <a href="#" class="social-btn" title="Email">@</a>
+        </div>
+        <div class="wechat-qr">
+          <svg viewBox="0 0 60 60" width="48" height="48" fill="none">
+            <rect x="4" y="4" width="20" height="20" rx="2" stroke="rgba(201,168,76,.4)" stroke-width="1.5"/>
+            <rect x="8" y="8" width="12" height="12" rx="1" fill="rgba(201,168,76,.15)"/>
+            <rect x="36" y="4" width="20" height="20" rx="2" stroke="rgba(201,168,76,.4)" stroke-width="1.5"/>
+            <rect x="40" y="8" width="12" height="12" rx="1" fill="rgba(201,168,76,.15)"/>
+            <rect x="4" y="36" width="20" height="20" rx="2" stroke="rgba(201,168,76,.4)" stroke-width="1.5"/>
+            <rect x="8" y="40" width="12" height="12" rx="1" fill="rgba(201,168,76,.15)"/>
+            <rect x="36" y="36" width="6" height="6" fill="rgba(201,168,76,.3)"/>
+            <rect x="46" y="36" width="6" height="6" fill="rgba(201,168,76,.3)"/>
+            <rect x="36" y="46" width="6" height="6" fill="rgba(201,168,76,.3)"/>
+            <rect x="46" y="46" width="6" height="6" fill="rgba(201,168,76,.3)"/>
+          </svg>
+        </div>
+        <div class="wechat-qr-label">WeChat · 微信</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Cambridge China Business Forum. All rights reserved.</span>
+      <span class="footer-cambridge">Judge Business School · University of Cambridge</span>
+      <a href="#hero" class="footer-back-top">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 10V2M2 6L6 2L10 6" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+        Top
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ════════════════════════════════════════════════════
+//  SECTION 02 — HERO PARTICLE SYSTEM
+// ════════════════════════════════════════════════════
+(function(){
+const canvas = document.getElementById('particleCanvas');
+const ctx    = canvas.getContext('2d');
+let W,H,dpr;
+function resize(){
+  dpr=window.devicePixelRatio||1;W=canvas.clientWidth;H=canvas.clientHeight;
+  canvas.width=W*dpr;canvas.height=H*dpr;ctx.scale(dpr,dpr);
+}
+resize();window.addEventListener('resize',()=>{resize();initPos();});
+
+const N=750,CDIST=88,CDIST2=CDIST*CDIST;
+const GOLD={r:201,g:168,b:76},RED={r:180,g:40,b:20};
+
+function horsePoints(n){
+  const segs=[
+    [[.38,.62],[.42,.55],[.55,.50],[.68,.52]],[[.68,.52],[.78,.54],[.84,.50],[.86,.44]],
+    [[.86,.44],[.88,.38],[.85,.33],[.80,.30]],[[.80,.30],[.76,.27],[.72,.22],[.70,.18]],
+    [[.70,.18],[.68,.14],[.64,.12],[.60,.14]],[[.60,.14],[.56,.16],[.55,.20],[.56,.24]],
+    [[.56,.24],[.58,.29],[.63,.32],[.65,.37]],[[.65,.37],[.67,.42],[.65,.47],[.60,.50]],
+    [[.60,.50],[.54,.52],[.48,.52],[.42,.55]],[[.38,.62],[.42,.68],[.52,.72],[.62,.70]],
+    [[.62,.70],[.70,.68],[.76,.66],[.80,.62]],[[.60,.70],[.58,.76],[.54,.80],[.50,.85]],
+    [[.50,.85],[.48,.88],[.46,.90],[.44,.90]],[[.62,.70],[.65,.72],[.66,.78],[.64,.84]],
+    [[.36,.65],[.32,.70],[.28,.76],[.26,.84]],[[.26,.84],[.24,.88],[.22,.90],[.20,.90]],
+    [[.40,.66],[.38,.72],[.36,.80],[.36,.86]],[[.38,.62],[.28,.56],[.18,.48],[.12,.40]],
+    [[.12,.40],[.08,.34],[.06,.28],[.08,.22]],[[.65,.37],[.60,.28],[.55,.22],[.52,.18]],
+    [[.52,.18],[.50,.14],[.48,.12],[.46,.14]],[[.60,.14],[.62,.08],[.66,.06],[.68,.10]],
+  ];
+  function bp(t,p0,p1,p2,p3){const u=1-t;return{x:u*u*u*p0[0]+3*u*u*t*p1[0]+3*u*t*t*p2[0]+t*t*t*p3[0],y:u*u*u*p0[1]+3*u*u*t*p1[1]+3*u*t*t*p2[1]+t*t*t*p3[1]};}
+  const pts=[];const ps=Math.ceil(n/segs.length);
+  segs.forEach(s=>{for(let i=0;i<=ps;i++){const p=bp(i/ps,s[0],s[1],s[2],s[3]);pts.push({x:p.x+(Math.random()-.5)*.012,y:p.y+(Math.random()-.5)*.012});}});
+  for(let i=pts.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pts[i],pts[j]]=[pts[j],pts[i]];}
+  return pts.slice(0,n);
+}
+function worldPoints(n){
+  const hubs=[[.82,.34],[.83,.36],[.80,.37],[.79,.40],[.84,.39],[.76,.45],[.74,.50],[.72,.47],[.465,.26],[.47,.27],[.48,.24],[.50,.26],[.52,.28],[.16,.30],[.18,.32],[.14,.28],[.20,.34],[.60,.38],[.62,.40],[.65,.43],[.26,.55],[.50,.50],[.85,.65],[.87,.62]];
+  const pts=[];const cs=Math.floor(n/hubs.length);
+  hubs.forEach(h=>{for(let i=0;i<cs;i++){const a=Math.random()*Math.PI*2,r=Math.random()*.06;pts.push({x:h[0]+Math.cos(a)*r,y:h[1]+Math.sin(a)*r});}});
+  while(pts.length<n)pts.push({x:Math.random(),y:Math.random()*.8+.1});
+  return pts.slice(0,n);
+}
+
+const particles=[];
+let ht=[],wt=[];
+function initPos(){
+  ht=horsePoints(N);wt=worldPoints(N);
+  const hs=Math.min(W,H)*1.0,hox=W*.5-hs*.5,hoy=H*.5-hs*.52;
+  const wsx=W*.82,wsy=H*.82,wox=W*.09,woy=H*.09;
+  if(particles.length===0){
+    for(let i=0;i<N;i++){
+      particles.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4,r:Math.random()*1.4+.5,
+        hx:ht[i]?ht[i].x*hs+hox:W*.5,hy:ht[i]?ht[i].y*hs+hoy:H*.5,
+        wx:wt[i]?wt[i].x*wsx+wox:W*.5,wy:wt[i]?wt[i].y*wsy+woy:H*.5,
+        alpha:.6+Math.random()*.4,cp:Math.random()});
+    }
+  } else {
+    particles.forEach((p,i)=>{
+      p.hx=ht[i]?ht[i].x*hs+hox:W*.5;p.hy=ht[i]?ht[i].y*hs+hoy:H*.5;
+      p.wx=wt[i]?wt[i].x*wsx+wox:W*.5;p.wy=wt[i]?wt[i].y*wsy+woy:H*.5;
+    });
+  }
+}
+initPos();
+
+const PD=[5000,6000,6000,5000];
+let ps=Date.now(),cp=0,mt=0;
+const PL=['Network','Spirit of Innovation','Global Connections','Network'];
+const plabel=document.getElementById('phaseLabel');
+function eic(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;}
+function eoq(t){return 1-Math.pow(1-t,4);}
+
+function upPhase(now){
+  const el=now-ps,dur=PD[cp];
+  if(cp===1||cp===2)mt=Math.min(1,el/(dur*.75));
+  else if(cp===3)mt=1-Math.min(1,el/(dur*.75));
+  if(el>dur){cp=(cp+1)%4;ps=now;mt=cp===0?0:mt;upPhaseUI(cp);}
+}
+function upPhaseUI(p){
+  const s=p%3;[0,1,2].forEach(i=>{const el=document.getElementById('pd'+i);if(el)el.classList.toggle('active',i===s);});
+  plabel.classList.remove('vis');
+  setTimeout(()=>{plabel.textContent=PL[p];plabel.classList.add('vis');},300);
+}
+upPhaseUI(0);setTimeout(()=>plabel.classList.add('vis'),2200);
+
+const ARCS=[
+  {x1:.465,y1:.26,x2:.82,y2:.34},{x1:.465,y1:.26,x2:.83,y2:.37},{x1:.465,y1:.26,x2:.80,y2:.41},
+  {x1:.465,y1:.26,x2:.16,y2:.30},{x1:.465,y1:.26,x2:.74,y2:.50},{x1:.82,y1:.34,x2:.18,y2:.32},
+  {x1:.82,y1:.34,x2:.74,y2:.50},{x1:.83,y1:.37,x2:.14,y2:.28},
+];
+const arcOff=ARCS.map(()=>Math.random()*200);
+
+function drawArcs(a){
+  const sf=(Date.now()-ps)*.0004;
+  ARCS.forEach((arc,i)=>{
+    const x1=arc.x1*W,y1=arc.y1*H,x2=arc.x2*W,y2=arc.y2*H;
+    const mx=(x1+x2)/2,my=(y1+y2)/2-Math.sqrt((x2-x1)**2+(y2-y1)**2)*.25;
+    const off=(arcOff[i]+sf*60)%140;
+    ctx.beginPath();ctx.moveTo(x1,y1);ctx.quadraticCurveTo(mx,my,x2,y2);
+    ctx.strokeStyle=`rgba(201,168,76,${a*.7})`;ctx.lineWidth=.8;
+    ctx.setLineDash([50,90]);ctx.lineDashOffset=-off;ctx.stroke();ctx.setLineDash([]);
+    ctx.beginPath();ctx.arc(x1,y1,2.5,0,Math.PI*2);ctx.fillStyle=`rgba(201,168,76,${a})`;ctx.fill();
+    ctx.beginPath();ctx.arc(x2,y2,2.5,0,Math.PI*2);ctx.fillStyle=`rgba(139,26,26,${a})`;ctx.fill();
+  });
+}
+
+let lt=0;
+function draw(now){
+  const dt=Math.min(now-lt,32);lt=now;
+  upPhase(now);ctx.clearRect(0,0,W,H);
+  const et=eic(Math.min(mt,1));
+  particles.forEach(p=>{
+    if(cp===0||cp===3){p.x+=p.vx*(dt/16);p.y+=p.vy*(dt/16);if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
+    else if(cp===1){p.x+=(p.hx-p.x)*.035*et;p.y+=(p.hy-p.y)*.035*et;}
+    else if(cp===2){p.x+=(p.wx-p.x)*.03*et;p.y+=(p.wy-p.y)*.03*et;}
+  });
+  const ca=cp===0||cp===3?1:cp===1?(1-eoq(Math.min(mt,1))*.85):(eoq(Math.min(mt,1))*.6);
+  if(ca>.05){
+    for(let i=0;i<N;i++){const pi=particles[i];for(let j=i+1;j<N;j++){const pj=particles[j];const dx=pi.x-pj.x,dy=pi.y-pj.y,d2=dx*dx+dy*dy;if(d2<CDIST2){const pr=1-Math.sqrt(d2)/CDIST;ctx.beginPath();ctx.strokeStyle=`rgba(201,168,76,${pr*.18*ca})`;ctx.lineWidth=.5;ctx.moveTo(pi.x,pi.y);ctx.lineTo(pj.x,pj.y);ctx.stroke();}}}
+  }
+  if(cp===2&&mt>.3)drawArcs(eoq(Math.min((mt-.3)/.7,1))*.5);
+  particles.forEach(p=>{
+    let cr,cg,cb;
+    if(cp===1){const t2=eoq(Math.min(mt,1));cr=GOLD.r+(RED.r-GOLD.r)*t2;cg=GOLD.g+(RED.g-GOLD.g)*t2;cb=GOLD.b+(RED.b-GOLD.b)*t2;}
+    else if(cp===2){const t2=eoq(Math.min(mt,1));cr=RED.r+(GOLD.r-RED.r)*t2;cg=RED.g+(GOLD.g-RED.g)*t2;cb=RED.b+(GOLD.b-RED.b)*t2;}
+    else{cr=GOLD.r;cg=GOLD.g;cb=GOLD.b;}
+    const al=p.alpha*(.7+.3*Math.sin(now*.0008+p.cp*10));
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(${Math.round(cr)},${Math.round(cg)},${Math.round(cb)},${al})`;ctx.fill();
+  });
+  requestAnimationFrame(draw);
+}
+requestAnimationFrame(draw);
+
+// navbar + parallax
+document.getElementById('navbar').addEventListener&&window.addEventListener('scroll',()=>{document.getElementById('navbar').classList.toggle('scrolled',scrollY>60);},{passive:true});
+const hc=document.querySelector('.hero-content');
+document.getElementById('hero').addEventListener('mousemove',e=>{const cx=e.clientX/innerWidth-.5,cy=e.clientY/innerHeight-.5;hc.style.transform=`translate(${cx*8}px,${cy*6}px)`;});
+document.getElementById('hero').addEventListener('mouseleave',()=>{hc.style.transform='';});
+hc.style.transition='transform .8s cubic-bezier(.16,1,.3,1)';
+})();
+
+// ════════════════════════════════════════════════════
+//  SECTION 03 — CLOUDS + CALLIGRAPHY
+// ════════════════════════════════════════════════════
+(function(){
+const cl=document.getElementById('cloudLayer');
+const cfgs=[
+  {sym:'cloud-a',x:'-8vw',y:'5%',w:'38vw',spd:.28,delay:0},
+  {sym:'cloud-b',x:'68vw',y:'11%',w:'26vw',spd:.18,delay:200},
+  {sym:'cloud-a',x:'76vw',y:'36%',w:'32vw',spd:.22,delay:400,fx:true},
+  {sym:'cloud-c',x:'-4vw',y:'54%',w:'44vw',spd:.15,delay:600},
+  {sym:'cloud-b',x:'14vw',y:'70%',w:'22vw',spd:.25,delay:300,fx:true},
+  {sym:'cloud-a',x:'54vw',y:'77%',w:'36vw',spd:.2,delay:100},
+  {sym:'cloud-c',x:'58vw',y:'57%',w:'40vw',spd:.12,delay:500,fx:true},
+];
+cfgs.forEach(c=>{
+  const s=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  s.style.cssText=`position:absolute;left:${c.x};top:${c.y};width:${c.w};height:auto;pointer-events:none;transform:scaleX(${c.fx?-1:1});`;
+  s.innerHTML=`<use href="#${c.sym}" width="100%" height="100%"/>`;
+  s.classList.add('cloud');s.dataset.spd=c.spd;s.dataset.fx=c.fx?-1:1;
+  cl.appendChild(s);setTimeout(()=>s.classList.add('vis'),c.delay);
+});
+const idSec=document.getElementById('identity');
+window.addEventListener('scroll',()=>{
+  const r=idSec.getBoundingClientRect(),sc=-r.top;
+  if(sc<-innerHeight||sc>idSec.offsetHeight+innerHeight)return;
+  document.querySelectorAll('.cloud').forEach(c=>{const spd=parseFloat(c.dataset.spd),fx=parseFloat(c.dataset.fx||1);c.style.transform=`scaleX(${fx}) translateY(${sc*spd*.1}px)`;});
+},{passive:true});
+})();
+
+// ════════════════════════════════════════════════════
+//  SHARED — SCROLL REVEAL + CALLIGRAPHY + COUNTERS
+// ════════════════════════════════════════════════════
+(function(){
+function drawCalli(){
+  document.querySelectorAll('.calli-char').forEach((ch,ci)=>{
+    const g=ch.querySelector('.calli-glyph');
+    if(g)setTimeout(()=>g.classList.add('vis'),ci*400);
+  });
+}
+function runCounters(scope){
+  (scope||document).querySelectorAll('[data-target]').forEach(el=>{
+    const tgt=parseInt(el.dataset.target),dur=1800,st=performance.now();
+    const tick=now=>{const p=Math.min((now-st)/dur,1),e=1-Math.pow(1-p,4);el.textContent=Math.round(e*tgt);if(p<1)requestAnimationFrame(tick);else el.textContent=tgt;};
+    requestAnimationFrame(tick);
+  });
+}
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target;
+    el.classList.add('up');
+    if(el.dataset.calli!==undefined)setTimeout(drawCalli,400);
+    if(el.dataset.stats!==undefined)setTimeout(()=>runCounters(el),300);
+    ro.unobserve(el);
+  });
+},{threshold:.12,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('[data-reveal]').forEach(el=>ro.observe(el));
+// network stat counters separate observer
+const netRo=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(!e.isIntersecting)return;runCounters(e.target.closest('.network-stats'));netRo.unobserve(e.target);});
+},{threshold:.2});
+document.querySelectorAll('.net-stat-num[data-target]').forEach(el=>netRo.observe(el));
+})();
+
+// ════════════════════════════════════════════════════
+//  SECTION 04 — SPEAKERS DATA + GRID
+// ════════════════════════════════════════════════════
+(function(){
+const speakers=[
+  {name:'Dr. Wei Chen',role:'Chief AI Officer',org:'Baidu',tag:'keynote',init:'WC'},
+  {name:'Prof. Sarah Liu',role:'Dean of Research',org:'Judge Business School',tag:'keynote',init:'SL'},
+  {name:'James Wu',role:'Managing Partner',org:'Sequoia China',tag:'panelist',init:'JW'},
+  {name:'Dr. Ming Zhang',role:'Head of Deep Tech',org:'Tencent',tag:'panelist',init:'MZ'},
+  {name:'Catherine Ho',role:'Partner',org:'GGV Capital',tag:'panelist',init:'CH'},
+  {name:'Prof. Richard Lam',role:'Economics Chair',org:'Cambridge',tag:'panelist',init:'RL'},
+  {name:'Anita Shen',role:'CEO',org:'Horizon Robotics',tag:'keynote',init:'AS'},
+  {name:'Dr. Tom Edwards',role:'Policy Director',org:'UK-China Forum',tag:'moderator',init:'TE'},
+  {name:'Li Wei',role:'VP Global Strategy',org:'ByteDance',tag:'panelist',init:'LW'},
+  {name:'Sarah Park',role:'Investment Director',org:'Qiming Ventures',tag:'panelist',init:'SP'},
+  {name:'Prof. David Chan',role:'Technology Ethics',org:'Cambridge',tag:'moderator',init:'DC'},
+  {name:'Emma Zhang',role:'Founder',org:'ClimateAI China',tag:'panelist',init:'EZ'},
+];
+const grid=document.getElementById('speakersGrid');
+const colors=['rgba(139,26,26,.35)','rgba(90,14,14,.45)','rgba(45,10,10,.55)'];
+speakers.forEach((s,i)=>{
+  const c=document.createElement('div');
+  c.className='speaker-card reveal';c.dataset.reveal='';c.dataset.filter=s.tag;
+  c.innerHTML=`
+    <div class="speaker-img-wrap" style="background:${colors[i%3]};">
+      <div class="speaker-initials">${s.init}</div>
+      <div class="speaker-overlay"></div>
+      <div class="speaker-details">
+        <span class="speaker-tag">${s.tag}</span>
+        <span class="speaker-name">${s.name}</span>
+        <span class="speaker-role">${s.role} · ${s.org}</span>
+      </div>
+    </div>
+    <div class="speaker-bio-hover">
+      <div class="speaker-bio-name">${s.name}</div>
+      <p class="speaker-bio-text">${s.role} at ${s.org}. A leading voice at the intersection of Chinese innovation and global business strategy, contributing key insights to the Forum's ${s.tag} sessions.</p>
+    </div>`;
+  grid.appendChild(c);
+  // stagger reveal
+  setTimeout(()=>new IntersectionObserver(([en])=>{if(en.isIntersecting){c.classList.add('up');}},{threshold:.1}).observe(c),i*60);
+});
+
+// filter buttons
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f=btn.dataset.filter;
+    document.querySelectorAll('.speaker-card').forEach(c=>{
+      c.classList.toggle('hidden',f!=='all'&&c.dataset.filter!==f);
+    });
+  });
+});
+})();
+
+// ════════════════════════════════════════════════════
+//  SECTION 05 — PROGRAM SCHEDULE
+// ════════════════════════════════════════════════════
+(function(){
+const morning=[
+  {time:'10:30–11:00',title:'Registration',cn:'签到',tag:'Arrival',meta:'Refreshments served',detail:'Delegates arrive and collect name badges. Networking breakfast available in the JBS atrium.'},
+  {time:'11:00–11:10',title:'Opening Remarks',cn:'开幕致辞',tag:'Ceremony',meta:'Gishan Dissanaike — Dean, Cambridge Judge Business School',detail:'The Dean of Cambridge Judge Business School officially opens the Third CCBF Forum.'},
+  {time:'11:10–11:30',title:'Guest Opening Remarks',cn:'嘉宾开幕致辞',tag:'Ceremony',meta:'2–3 Distinguished Guests',detail:'Senior dignitaries and guest speakers deliver opening addresses on the China–UK innovation relationship.'},
+  {time:'11:30–12:00',title:'Keynote Speakers',cn:'主旨演讲',tag:'Keynote',meta:'Representatives from leading Chinese global companies',detail:'Keynote addresses from C-suite leaders of China\'s most influential global technology companies.'},
+  {time:'12:00–13:00',title:'Panel Discussion I',cn:'圆桌论坛 I',tag:'Panel',meta:'Theme: AI Ecosystem · 3–5 Industry Experts',detail:'An in-depth discussion on the evolving AI ecosystem across China and the UK — from regulation and ethics to deployment at scale.'},
+];
+const afternoon=[
+  {time:'13:30–14:00',title:'Keynote Session II',cn:'主旨发言 II',tag:'Keynote',meta:'Outstanding Chinese Entrepreneurs',detail:'Second keynote block featuring China\'s most celebrated entrepreneurs sharing their global expansion journeys.'},
+  {time:'14:00–15:00',title:'Panel Discussion II',cn:'圆桌论坛 II',tag:'Panel',meta:'Theme: China–UK Venture Capital Ecosystem · 3–5 Expert Panelists',detail:'Exploring the mechanics of cross-border venture capital — deal flow, due diligence, and building trust across cultures.'},
+  {time:'15:00–17:00',title:'Case Competition Finals',cn:'案例竞赛',tag:'Competition',meta:'Finalist Representatives',detail:'The top teams from the CCBF Case Competition present their solutions before a panel of senior industry judges.'},
+  {time:'17:00–18:00',title:'Networking & Reception',cn:'交流与酒会',tag:'Networking',meta:'All Attendees',detail:'Drinks reception and structured networking. A unique opportunity to connect with China–UK business leaders in an intimate setting.'},
+  {time:'18:00–18:30',title:'Closing Ceremony',cn:'闭幕式',tag:'Ceremony',meta:'Keynote Speaker · Closing Remarks',detail:'The Forum draws to a close with reflections from senior speakers and an invitation to the Fourth CCBF.'},
+];
+function buildSession(s){
+  const d=document.createElement('div');d.className='prog-session reveal';d.dataset.reveal='';
+  d.innerHTML=`<div class="prog-session-head"><span class="prog-time">${s.time}</span><div class="prog-session-body"><span class="prog-session-title">${s.title}</span><span class="prog-session-cn">${s.cn}</span><span class="prog-session-meta">${s.meta}</span><span class="prog-session-tag">${s.tag}</span></div><div class="prog-session-expand">+</div></div><div class="prog-session-detail"><p>${s.detail}</p></div>`;
+  d.querySelector('.prog-session-head').addEventListener('click',()=>d.classList.toggle('open'));
+  return d;
+}
+const mc=document.getElementById('morningCol'),ac=document.getElementById('afternoonCol');
+morning.forEach(s=>mc.appendChild(buildSession(s)));
+afternoon.forEach(s=>ac.appendChild(buildSession(s)));
+})();
+
+// ════════════════════════════════════════════════════
+//  SECTION 06 — MAP CANVAS
+// ════════════════════════════════════════════════════
+(function(){
+const canvas=document.getElementById('mapCanvas');
+const ctx=canvas.getContext('2d');
+let W,H;
+function resize(){W=canvas.clientWidth;H=canvas.clientHeight;canvas.width=W*(devicePixelRatio||1);canvas.height=H*(devicePixelRatio||1);ctx.scale(devicePixelRatio||1,devicePixelRatio||1);}
+resize();window.addEventListener('resize',()=>{resize();draw();});
+
+const cities=[
+  {name:'Cambridge',x:.465,y:.27,hub:true},{name:'London',x:.46,y:.29,hub:false},
+  {name:'Beijing',x:.80,y:.31,hub:true},{name:'Shanghai',x:.82,y:.36,hub:true},
+  {name:'Hong Kong',x:.79,y:.41,hub:true},{name:'Shenzhen',x:.79,y:.43,hub:false},
+  {name:'Singapore',x:.74,y:.50,hub:true},{name:'New York',x:.17,y:.30,hub:true},
+  {name:'San Francisco',x:.12,y:.31,hub:true},{name:'Tokyo',x:.84,y:.33,hub:false},
+  {name:'Dubai',x:.59,y:.38,hub:false},{name:'Sydney',x:.86,y:.64,hub:false},
+];
+const connections=[
+  [0,2],[0,3],[0,4],[0,7],[0,8],[0,6],[2,7],[3,8],[4,6],[2,3],[7,8],
+];
+let t=0;
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  // bg grid
+  ctx.strokeStyle='rgba(201,168,76,.04)';ctx.lineWidth=.5;
+  for(let x=0;x<W;x+=W/16){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  for(let y=0;y<H;y+=H/8){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+
+  // arcs
+  connections.forEach(([ai,bi],idx)=>{
+    const a=cities[ai],b=cities[bi];
+    const x1=a.x*W,y1=a.y*H,x2=b.x*W,y2=b.y*H;
+    const mx=(x1+x2)/2,my=(y1+y2)/2-Math.sqrt((x2-x1)**2+(y2-y1)**2)*.3;
+    const pathLen=250;const off=((t*40+idx*30)%pathLen);
+    ctx.beginPath();ctx.moveTo(x1,y1);ctx.quadraticCurveTo(mx,my,x2,y2);
+    ctx.strokeStyle='rgba(201,168,76,.12)';ctx.lineWidth=.8;ctx.setLineDash([]);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(x1,y1);ctx.quadraticCurveTo(mx,my,x2,y2);
+    ctx.strokeStyle='rgba(201,168,76,.55)';ctx.lineWidth=1;ctx.setLineDash([35,pathLen-35]);ctx.lineDashOffset=-off;ctx.stroke();
+    ctx.setLineDash([]);
+  });
+
+  // cities
+  cities.forEach(c=>{
+    const x=c.x*W,y=c.y*H;
+    if(c.hub){
+      const pulse=.5+.5*Math.sin(t*2+c.x*10);
+      ctx.beginPath();ctx.arc(x,y,6+pulse*4,0,Math.PI*2);
+      ctx.fillStyle=`rgba(139,26,26,${.15*pulse})`;ctx.fill();
+    }
+    ctx.beginPath();ctx.arc(x,y,c.hub?3.5:2,0,Math.PI*2);
+    ctx.fillStyle=c.hub?'#C9A84C':'rgba(201,168,76,.5)';ctx.fill();
+    ctx.fillStyle=c.hub?'rgba(245,236,215,.75)':'rgba(245,236,215,.4)';
+    ctx.font=`${c.hub?12:10}px 'EB Garamond', serif`;
+    ctx.textAlign=c.x>.5?'right':'left';
+    ctx.fillText(c.name,x+(c.x>.5?-10:10),y-8);
+  });
+  t+=.008;requestAnimationFrame(draw);
+}
+// start when visible
+const mo=new IntersectionObserver(([e])=>{if(e.isIntersecting)draw();},{threshold:.1});
+mo.observe(canvas);
+
+// city chips removed — labels are visible in the animated map canvas
+})();
+
+// ════════════════════════════════════════════════════
+//  SECTION 08 — MARQUEE
+// ════════════════════════════════════════════════════
+(function(){
+const items=['Artificial Intelligence','Venture Capital','Deep Technology','Cross-border M&A','Supply Chain Innovation','ESG Leadership','Future of Finance','Smart Manufacturing','EdTech','Climate Solutions','Digital Health','Space Technology'];
+const mi=document.getElementById('marqueeInner');
+[...items,...items].forEach(t=>{const d=document.createElement('div');d.className='marquee-item';d.textContent=t;mi.appendChild(d);});
+})();
+
+// ════════════════════════════════════════════════════
+//  GLOBAL — MOBILE NAV + SMOOTH SCROLL
+// ════════════════════════════════════════════════════
+document.getElementById('hamburger').addEventListener('click',function(){
+  const nl=document.querySelector('.nav-links');
+  if(!nl)return;
+  if(nl.style.display==='flex'){nl.style.display='';this.style.opacity='1';}
+  else{nl.style.cssText='display:flex;flex-direction:column;position:fixed;top:60px;left:0;right:0;background:rgba(13,6,5,.97);padding:24px;gap:20px;z-index:199;border-bottom:.5px solid rgba(201,168,76,.15);';}
+});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}});});
+// re-observe dynamically added speaker cards
+setTimeout(()=>{
+  const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('up');});},{threshold:.1});
+  document.querySelectorAll('.speaker-card:not(.up)').forEach(c=>ro.observe(c));
+},500);
+</script>
+
+<!-- ════════════════════════════════════════════════════
+     CUSTOM CURSOR — Ink & Constellation
+     ════════════════════════════════════════════════════ -->
+<script>
+(function(){
+  if(!window.matchMedia('(pointer: fine)').matches){
+    document.documentElement.style.cursor='auto';
+    return;
+  }
+
+  const TRAIL_LIFE = 3.25; // seconds — adjust here
+
+  const fxCanvas  = document.getElementById('cursor-fx');
+  const dotCanvas = document.getElementById('cursor-dot');
+  const fxCtx     = fxCanvas.getContext('2d');
+  const dotCtx    = dotCanvas.getContext('2d');
+
+  let W=0, H=0;
+  function resize(){
+    W = window.innerWidth; H = window.innerHeight;
+    fxCanvas.width = dotCanvas.width  = W;
+    fxCanvas.height= dotCanvas.height = H;
+  }
+  resize();
+  window.addEventListener('resize', resize, {passive:true});
+
+  const mouse = {x:-500, y:-500};
+  let prevX=-500, prevY=-500;
+  let frame=0;
+
+  const particles = [];   // active ink particles
+  const settled   = [];   // settled ink particles
+  const dots      = [];   // constellation dots
+  let lastDot=null, lastDotX=-999, lastDotY=-999;
+
+  function getAlpha(born){
+    const age = (frame - born) / 60;
+    if(age >= TRAIL_LIFE) return 0;
+    const fadeIn      = 0.25;
+    const fadeOutStart= TRAIL_LIFE * 0.5;
+    let a;
+    if(age < fadeIn)        a = age / fadeIn;
+    else if(age < fadeOutStart) a = 1;
+    else a = 1 - (age - fadeOutStart) / (TRAIL_LIFE - fadeOutStart);
+    return a * 0.85;
+  }
+
+  window.addEventListener('mousemove', function(e){
+    const dx    = e.clientX - prevX;
+    const dy    = e.clientY - prevY;
+    const speed = Math.sqrt(dx*dx + dy*dy);
+    const angle = Math.atan2(dy, dx);
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+
+    // Spawn ink particles
+    const count = Math.min(2 + Math.floor(speed * 0.35), 8);
+    for(let i=0; i<count; i++){
+      particles.push({
+        x: mouse.x + (Math.random()-0.5)*4.8,
+        y: mouse.y + (Math.random()-0.5)*4.8,
+        vx: Math.cos(angle) * (0.3 + Math.random()*(1.2 + speed*0.06)),
+        vy: Math.sin(angle) * (0.3 + Math.random()*(1.2 + speed*0.06)) - 0.4,
+        life: 1,
+        decay: 0.022 + Math.random()*0.022,
+        size: 1.61 + Math.random()*2.76,
+        willSettle: Math.random() < 0.22,
+        born: frame,
+      });
+    }
+
+    // Spawn constellation dot
+    const dist      = Math.sqrt(Math.pow(mouse.x-lastDotX,2) + Math.pow(mouse.y-lastDotY,2));
+    const threshold = speed > 8 ? 30 : 18;
+    if(dist > threshold){
+      const dot = {
+        x: mouse.x, y: mouse.y,
+        born: frame,
+        size: 1.8 + Math.random()*1.3,
+        prev: lastDot,
+        pulse: Math.random()*Math.PI*2,
+      };
+      dots.push(dot);
+      if(dots.length > 140) dots.shift();
+      lastDot=dot; lastDotX=mouse.x; lastDotY=mouse.y;
+    }
+
+    prevX=mouse.x; prevY=mouse.y;
+  },{passive:true});
+
+  function draw(){
+    frame++;
+
+    // Filter expired active particles
+    for(let i=particles.length-1; i>=0; i--)
+      if(particles[i].life <= 0) particles.splice(i,1);
+    // Filter expired settled particles
+    for(let i=settled.length-1; i>=0; i--)
+      if(getAlpha(settled[i].born) <= 0) settled.splice(i,1);
+
+    fxCtx.clearRect(0,0,W,H);
+    dotCtx.clearRect(0,0,W,H);
+
+    // ── Cursor (dot canvas) ──────────────────────────
+    const sb = Math.sin(frame*0.055);
+
+    dotCtx.beginPath();
+    dotCtx.arc(mouse.x, mouse.y, 17, 0, Math.PI*2);
+    dotCtx.strokeStyle = 'rgba(201,168,76,0.07)';
+    dotCtx.lineWidth   = 0.5;
+    dotCtx.stroke();
+
+    dotCtx.beginPath();
+    dotCtx.arc(mouse.x, mouse.y, 9 + sb*1.2, 0, Math.PI*2);
+    dotCtx.strokeStyle = `rgba(201,168,76,${+(0.28+sb*0.08).toFixed(3)})`;
+    dotCtx.lineWidth   = 1;
+    dotCtx.stroke();
+
+    dotCtx.beginPath();
+    dotCtx.arc(mouse.x, mouse.y, 4.5, 0, Math.PI*2);
+    dotCtx.fillStyle = '#C9A84C';
+    dotCtx.fill();
+
+    // ── 1. Active ink particles ──────────────────────
+    for(let i=particles.length-1; i>=0; i--){
+      const p = particles[i];
+      p.x  += p.vx;
+      p.y  += p.vy;
+      p.vy += 0.038;
+      p.vx *= 0.97;
+      p.life -= p.decay;
+
+      if(p.willSettle && p.life < 0.42){
+        p.sx=p.x; p.sy=p.y;
+        p.size *= 0.65;
+        p.born  = frame;
+        p.pulse = Math.random()*Math.PI*2;
+        settled.push(p);
+        particles.splice(i,1);
+        continue;
+      }
+      if(p.life <= 0){ particles.splice(i,1); continue; }
+
+      fxCtx.beginPath();
+      fxCtx.arc(p.x, p.y, p.size*p.life, 0, Math.PI*2);
+      fxCtx.fillStyle = `rgba(201,168,76,${+(p.life*0.748).toFixed(3)})`;
+      fxCtx.fill();
+    }
+
+    // ── 2. Settled particles ─────────────────────────
+    for(let i=0; i<settled.length; i++){
+      const p = settled[i];
+      p.pulse += 0.03;
+      const a = getAlpha(p.born);
+      if(a <= 0) continue;
+
+      fxCtx.beginPath();
+      fxCtx.arc(p.sx, p.sy, p.size*3.5, 0, Math.PI*2);
+      fxCtx.fillStyle = `rgba(201,168,76,${+(a*0.04).toFixed(4)})`;
+      fxCtx.fill();
+
+      fxCtx.beginPath();
+      fxCtx.arc(p.sx, p.sy, p.size*(0.9+0.1*Math.sin(p.pulse)), 0, Math.PI*2);
+      fxCtx.fillStyle = `rgba(201,168,76,${+(a*0.75).toFixed(3)})`;
+      fxCtx.fill();
+    }
+
+    // ── 3. Constellation lines ───────────────────────
+    for(let i=0; i<dots.length; i++){
+      const d = dots[i];
+      if(!d.prev) continue;
+      const a  = getAlpha(d.born);
+      const pa = getAlpha(d.prev.born);
+      if(a<=0 || pa<=0) continue;
+
+      fxCtx.beginPath();
+      fxCtx.moveTo(d.prev.x, d.prev.y);
+      fxCtx.lineTo(d.x, d.y);
+      fxCtx.strokeStyle = `rgba(201,168,76,${+(Math.min(a,pa)*0.2).toFixed(4)})`;
+      fxCtx.lineWidth   = 0.8;
+      fxCtx.stroke();
+    }
+
+    // ── 4. Constellation dots ────────────────────────
+    for(let i=dots.length-1; i>=0; i--){
+      const d = dots[i];
+      d.pulse += 0.032;
+      const a = getAlpha(d.born);
+      if(a <= 0){
+        dots.splice(i,1);
+        if(lastDot===d) lastDot=null;
+        continue;
+      }
+
+      fxCtx.beginPath();
+      fxCtx.arc(d.x, d.y, d.size*3.2, 0, Math.PI*2);
+      fxCtx.fillStyle = `rgba(201,168,76,${+(a*0.055).toFixed(4)})`;
+      fxCtx.fill();
+
+      fxCtx.beginPath();
+      fxCtx.arc(d.x, d.y, d.size*(0.87+0.13*Math.sin(d.pulse)), 0, Math.PI*2);
+      fxCtx.fillStyle = `rgba(201,168,76,${+(a*0.95).toFixed(3)})`;
+      fxCtx.fill();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  requestAnimationFrame(draw);
+})();
+</script>
+</body>
+</html>
