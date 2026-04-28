@@ -1310,118 +1310,29 @@ function waterfall(){
   for(let i=0;i<7;i++){ctx.beginPath();ctx.arc(wx+rnd(-7,7),wy2+rnd(-2,5),rnd(0.5,2.2),0,Math.PI*2);ctx.fillStyle=`rgba(200,150,55,${rnd(0.04,0.08)})`;ctx.fill();}
 }
 
-function pine(px,py,ph,pa,r=2,g=0,b=0){
-  ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(px,py-ph*0.14);
-  ctx.strokeStyle=`rgba(${r},${g},${b},${pa})`;ctx.lineWidth=ph*0.030;ctx.stroke();
+function pine(px,py,ph,pa){
+  ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(px,py-ph*0.14);ctx.strokeStyle=`rgba(2,0,0,${pa})`;ctx.lineWidth=ph*0.030;ctx.stroke();
   const tiers=5;
   for(let t=0;t<tiers;t++){
     const ty=py-ph*0.11-(t/tiers)*(ph*0.84),tw=ph*0.38*(1-t/tiers*0.56);
     ctx.beginPath();ctx.moveTo(px,ty-ph*0.16);ctx.quadraticCurveTo(px+tw*0.55,ty+3+t*1.5,px+tw,ty+t*1.5);ctx.quadraticCurveTo(px+tw*0.25,ty+ph*0.09,px,ty+ph*0.05);ctx.quadraticCurveTo(px-tw*0.25,ty+ph*0.09,px-tw,ty+t*1.5);ctx.quadraticCurveTo(px-tw*0.55,ty+3+t*1.5,px,ty-ph*0.16);
-    ctx.fillStyle=`rgba(${r},${g},${b},${+(pa-t*0.022).toFixed(3)})`;ctx.fill();
-    for(let n=0;n<9;n++){const nx=px+(rnd(-0.5,0.5))*tw*1.5,ny=ty+(rnd(-0.5,0.5))*ph*0.11,nl=rnd(2,6),na=rnd(-0.9,0.9);ctx.beginPath();ctx.moveTo(nx,ny);ctx.lineTo(nx+Math.cos(na)*nl,ny+Math.sin(na)*nl*0.35+nl*0.22);ctx.strokeStyle=`rgba(${r},${g},${b},${+(pa*0.52).toFixed(3)})`;ctx.lineWidth=rnd(0.3,0.62);ctx.stroke();}
+    ctx.fillStyle=`rgba(2,0,0,${pa-t*0.022})`;ctx.fill();
+    for(let n=0;n<9;n++){const nx=px+(rnd(-0.5,0.5))*tw*1.5,ny=ty+(rnd(-0.5,0.5))*ph*0.11,nl=rnd(2,6),na=rnd(-0.9,0.9);ctx.beginPath();ctx.moveTo(nx,ny);ctx.lineTo(nx+Math.cos(na)*nl,ny+Math.sin(na)*nl*0.35+nl*0.22);ctx.strokeStyle=`rgba(1,0,0,${pa*0.52})`;ctx.lineWidth=rnd(0.3,0.62);ctx.stroke();}
   }
 }
 
-// ── Layer 1: FAR DISTANT — ghost trees dissolving into haze (drawn before nearMtns)
-function forestFar(){
-  const C=[80,18,26];
-  pine(W*0.420,H*0.828,H*0.019,0.09,...C); pine(W*0.448,H*0.815,H*0.023,0.12,...C);
-  pine(W*0.468,H*0.832,H*0.017,0.08,...C); pine(W*0.495,H*0.820,H*0.022,0.11,...C);
-  pine(W*0.518,H*0.810,H*0.026,0.14,...C); pine(W*0.542,H*0.826,H*0.018,0.09,...C);
-  pine(W*0.565,H*0.816,H*0.021,0.12,...C); pine(W*0.590,H*0.830,H*0.017,0.08,...C);
-  pine(W*0.614,H*0.819,H*0.024,0.13,...C); pine(W*0.638,H*0.810,H*0.020,0.10,...C);
-  pine(W*0.662,H*0.825,H*0.018,0.09,...C); pine(W*0.685,H*0.815,H*0.023,0.13,...C);
-  pine(W*0.710,H*0.828,H*0.016,0.08,...C); pine(W*0.734,H*0.818,H*0.022,0.11,...C);
-  pine(W*0.758,H*0.811,H*0.026,0.15,...C); pine(W*0.782,H*0.825,H*0.019,0.10,...C);
-  pine(W*0.806,H*0.816,H*0.022,0.12,...C); pine(W*0.830,H*0.829,H*0.017,0.08,...C);
-  pine(W*0.854,H*0.820,H*0.020,0.11,...C); pine(W*0.878,H*0.812,H*0.025,0.14,...C);
-  pine(W*0.902,H*0.826,H*0.018,0.09,...C); pine(W*0.928,H*0.818,H*0.022,0.12,...C);
-  pine(W*0.952,H*0.830,H*0.016,0.08,...C); pine(W*0.480,H*0.842,H*0.015,0.07,...C);
-  pine(W*0.630,H*0.840,H*0.017,0.08,...C); pine(W*0.780,H*0.844,H*0.014,0.07,...C);
-  pine(W*0.920,H*0.838,H*0.018,0.08,...C);
-}
-
-// ── Layer 2: BACKGROUND — small trees at forested horizon (drawn before nearMtns)
-function forestBg(){
-  const C=[28,4,7];
-  pine(W*0.412,H*0.778,H*0.032,0.19,...C); pine(W*0.438,H*0.764,H*0.040,0.25,...C);
-  pine(W*0.460,H*0.780,H*0.030,0.18,...C); pine(W*0.485,H*0.770,H*0.036,0.23,...C);
-  pine(W*0.508,H*0.758,H*0.044,0.28,...C); pine(W*0.533,H*0.774,H*0.031,0.19,...C);
-  pine(W*0.556,H*0.765,H*0.038,0.24,...C); pine(W*0.580,H*0.779,H*0.028,0.17,...C);
-  pine(W*0.605,H*0.762,H*0.042,0.27,...C); pine(W*0.630,H*0.772,H*0.034,0.21,...C);
-  pine(W*0.655,H*0.765,H*0.038,0.24,...C); pine(W*0.680,H*0.778,H*0.030,0.18,...C);
-  pine(W*0.705,H*0.768,H*0.036,0.23,...C); pine(W*0.730,H*0.760,H*0.040,0.26,...C);
-  pine(W*0.755,H*0.774,H*0.032,0.20,...C); pine(W*0.780,H*0.766,H*0.037,0.23,...C);
-  pine(W*0.806,H*0.778,H*0.030,0.18,...C); pine(W*0.832,H*0.764,H*0.040,0.26,...C);
-  pine(W*0.858,H*0.775,H*0.034,0.21,...C); pine(W*0.884,H*0.768,H*0.037,0.24,...C);
-  pine(W*0.910,H*0.780,H*0.029,0.17,...C); pine(W*0.936,H*0.770,H*0.035,0.22,...C);
-  pine(W*0.960,H*0.762,H*0.041,0.27,...C); pine(W*0.430,H*0.792,H*0.026,0.14,...C);
-  pine(W*0.570,H*0.790,H*0.028,0.16,...C); pine(W*0.720,H*0.788,H*0.025,0.14,...C);
-  pine(W*0.870,H*0.793,H*0.027,0.15,...C);
-}
-
-// ── Layer 3: MIDGROUND — slopes trees (drawn after nearMtns so they sit on slopes)
-function forestMid(){
-  const C=[5,0,1];
-  pine(W*0.430,H*0.730,H*0.052,0.38,...C); pine(W*0.458,H*0.718,H*0.062,0.46,...C);
-  pine(W*0.482,H*0.734,H*0.048,0.36,...C); pine(W*0.508,H*0.722,H*0.058,0.43,...C);
-  pine(W*0.532,H*0.712,H*0.068,0.52,...C); pine(W*0.558,H*0.726,H*0.052,0.39,...C);
-  pine(W*0.582,H*0.715,H*0.062,0.46,...C); pine(W*0.608,H*0.730,H*0.050,0.38,...C);
-  pine(W*0.635,H*0.718,H*0.060,0.44,...C); pine(W*0.662,H*0.708,H*0.068,0.52,...C);
-  pine(W*0.688,H*0.724,H*0.054,0.40,...C); pine(W*0.714,H*0.716,H*0.060,0.45,...C);
-  pine(W*0.742,H*0.728,H*0.050,0.38,...C); pine(W*0.768,H*0.718,H*0.058,0.44,...C);
-  pine(W*0.795,H*0.710,H*0.066,0.50,...C); pine(W*0.822,H*0.724,H*0.054,0.40,...C);
-  pine(W*0.850,H*0.715,H*0.060,0.46,...C); pine(W*0.878,H*0.728,H*0.050,0.37,...C);
-  pine(W*0.905,H*0.718,H*0.056,0.43,...C); pine(W*0.932,H*0.708,H*0.065,0.50,...C);
-  pine(W*0.958,H*0.722,H*0.052,0.38,...C);
-  // second row deeper in valley
-  pine(W*0.445,H*0.752,H*0.060,0.44,...C); pine(W*0.475,H*0.744,H*0.066,0.50,...C);
-  pine(W*0.522,H*0.748,H*0.058,0.43,...C); pine(W*0.565,H*0.742,H*0.064,0.48,...C);
-  pine(W*0.610,H*0.752,H*0.056,0.42,...C); pine(W*0.655,H*0.745,H*0.062,0.47,...C);
-  pine(W*0.700,H*0.754,H*0.056,0.42,...C); pine(W*0.748,H*0.748,H*0.060,0.45,...C);
-  pine(W*0.795,H*0.755,H*0.054,0.40,...C); pine(W*0.842,H*0.746,H*0.062,0.47,...C);
-  pine(W*0.890,H*0.754,H*0.056,0.42,...C); pine(W*0.938,H*0.748,H*0.060,0.45,...C);
-}
-
-// ── Layer 4: NEAR FOREGROUND — larger trees at valley edges
-function forestNear(){
-  const C=[3,0,1];
-  // right-of-centre foreground grove
-  pine(W*0.262,H*0.908,H*0.148,0.74,...C); pine(W*0.292,H*0.920,H*0.128,0.70,...C);
-  pine(W*0.320,H*0.902,H*0.158,0.76,...C); pine(W*0.350,H*0.915,H*0.134,0.71,...C);
-  pine(W*0.378,H*0.906,H*0.150,0.74,...C); pine(W*0.408,H*0.920,H*0.130,0.69,...C);
-  pine(W*0.435,H*0.910,H*0.144,0.72,...C);
-  // right edge framing
-  pine(W*0.855,H*0.910,H*0.140,0.72,...C); pine(W*0.882,H*0.900,H*0.152,0.75,...C);
-  pine(W*0.910,H*0.914,H*0.132,0.70,...C); pine(W*0.936,H*0.906,H*0.148,0.73,...C);
-  pine(W*0.962,H*0.896,H*0.160,0.76,...C);
-  // bottom valley centre — sparse gap for composition breathing room
-  pine(W*0.490,H*0.938,H*0.118,0.65,...C); pine(W*0.540,H*0.950,H*0.105,0.62,...C);
-}
-
-// ── background ridge pines (drawn before nearMtns)
-function bgPines(){
-  pine(W*0.800,H*0.834,H*0.040,0.26); pine(W*0.818,H*0.823,H*0.036,0.22);
-  pine(W*0.836,H*0.815,H*0.032,0.19); pine(W*0.854,H*0.806,H*0.028,0.16);
-  pine(W*0.872,H*0.800,H*0.026,0.14); pine(W*0.890,H*0.797,H*0.024,0.12);
-  pine(W*0.240,H*0.740,H*0.036,0.20); pine(W*0.258,H*0.724,H*0.032,0.17);
-  pine(W*0.276,H*0.712,H*0.028,0.14); pine(W*0.294,H*0.706,H*0.024,0.11);
-  pine(W*0.312,H*0.712,H*0.020,0.09);
-}
-
-// ── Layer 5: FOREGROUND SILHOUETTES — tall dark pines framing the scene
 function pines(){
-  // left grove — tall theatrical curtain
-  pine(W*0.022,H*1.02,H*0.54,0.92); pine(W*0.058,H*1.00,H*0.47,0.86);
-  pine(W*0.094,H*0.99,H*0.41,0.78); pine(W*0.130,H*1.01,H*0.35,0.69);
-  pine(W*0.162,H*1.00,H*0.29,0.58); pine(W*0.192,H*1.00,H*0.23,0.46);
-  pine(W*0.220,H*1.01,H*0.18,0.35); pine(W*0.244,H*1.01,H*0.14,0.26);
-  // main mountain flank accents
-  pine(W*0.678,H*0.78,H*0.050,0.30); pine(W*0.692,H*0.77,H*0.044,0.26);
-  pine(W*0.748,H*0.75,H*0.040,0.22); pine(W*0.761,H*0.76,H*0.036,0.18);
-  // large right-corner silhouettes
-  pine(W*0.965,H*1.04,H*0.44,0.90,3,0,1); pine(W*0.988,H*1.02,H*0.36,0.84,3,0,1);
-  pine(W*0.460,H*1.01,H*0.30,0.80,3,0,1); pine(W*0.482,H*1.03,H*0.34,0.82,3,0,1);
+  pine(W*0.028,H*1.02,H*0.52,0.90);pine(W*0.066,H*1.00,H*0.45,0.84);pine(W*0.104,H*0.99,H*0.39,0.76);
+  pine(W*0.140,H*1.01,H*0.33,0.67);pine(W*0.174,H*1.00,H*0.27,0.56);pine(W*0.205,H*1.00,H*0.22,0.44);pine(W*0.232,H*1.01,H*0.17,0.33);
+  // pines on main mountain flanks
+  pine(W*0.678,H*0.78,H*0.050,0.30);pine(W*0.692,H*0.77,H*0.044,0.26);
+  pine(W*0.748,H*0.75,H*0.040,0.22);pine(W*0.761,H*0.76,H*0.036,0.18);
+  // pines on right distant ridge
+  pine(W*0.820,H*0.86,H*0.038,0.18);pine(W*0.836,H*0.85,H*0.034,0.15);
+  pine(W*0.852,H*0.86,H*0.030,0.12);pine(W*0.868,H*0.87,H*0.026,0.10);
+  // pines on left distant ridge
+  pine(W*0.255,H*0.78,H*0.036,0.14);pine(W*0.270,H*0.77,H*0.032,0.12);
+  pine(W*0.285,H*0.78,H*0.028,0.10);pine(W*0.300,H*0.79,H*0.024,0.08);
 }
 
 function rocks(){
@@ -1441,27 +1352,9 @@ function vignette(){
   let b=ctx.createLinearGradient(0,H*0.82,0,H);b.addColorStop(0,'rgba(0,0,0,0)');b.addColorStop(1,'rgba(8,0,0,0.52)');ctx.fillStyle=b;ctx.fillRect(0,H*0.82,W,H*0.18);
 }
 
-function pavilionPines(){
-  // Row 1 — closest, tallest
-  pine(W*0.691, H*0.575, H*0.052, 0.46);
-  pine(W*0.748, H*0.566, H*0.045, 0.38);
-  // Row 2 — one sits slightly higher than the other
-  pine(W*0.697, H*0.541, H*0.040, 0.31);
-  pine(W*0.743, H*0.532, H*0.034, 0.26);
-  // Row 3 — uneven lateral spread
-  pine(W*0.700, H*0.509, H*0.030, 0.21);
-  pine(W*0.738, H*0.498, H*0.025, 0.16);
-  // Row 4 — one leans left
-  pine(W*0.703, H*0.478, H*0.021, 0.13);
-  pine(W*0.731, H*0.469, H*0.017, 0.09);
-  // Row 5 — ghostly, offset from centre
-  pine(W*0.707, H*0.450, H*0.015, 0.07);
-  pine(W*0.726, H*0.441, H*0.012, 0.05);
-}
-
 function paint(){
   ctx.clearRect(0,0,W,H);
-  bg();moonDisc();stars();farMtns();forestFar();forestBg();bgPines();mistBands();nearMtns();forestMid();waterfall();pavilionPines();pavilion();river();forestNear();pines();rocks();vignette();
+  bg();moonDisc();stars();farMtns();mistBands();nearMtns();waterfall();pavilion();river();pines();rocks();vignette();
 }
 
 resize();
