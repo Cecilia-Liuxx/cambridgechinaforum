@@ -636,7 +636,7 @@ img{display:block;max-width:100%;}
     <li><a href="#partners">Partners</a></li>
     <li><a href="#competition">Competition</a></li>
   </ul>
-  <a href="#footer" class="nav-cta">Register</a>
+  <a href="#register" class="nav-cta">Register</a>
   <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
@@ -659,7 +659,7 @@ img{display:block;max-width:100%;}
       <span>University of Cambridge</span>
     </div>
     <div class="hero-actions">
-      <a href="#footer" class="btn-gold">Register Now</a>
+      <a href="#register" class="btn-gold">Register Now</a>
       <a href="#program" class="btn-outline">View Program</a>
     </div>
   </div>
@@ -910,6 +910,57 @@ img{display:block;max-width:100%;}
 <!-- ════════════════════════════════════════════
      09 — FOOTER
      ════════════════════════════════════════════ -->
+<section id="register" style="background:#080304;padding:100px 0 0;position:relative;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 64px;display:flex;flex-direction:column;align-items:center;gap:40px;">
+    <div style="text-align:center;">
+      <div class="sec-overline" style="margin-bottom:32px;">
+        <div class="sec-overline-rule"></div>
+        <span class="sec-overline-text">Register · 报名参加</span>
+        <div class="sec-overline-rule r"></div>
+      </div>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(36px,4vw,54px);font-weight:300;color:var(--cream);line-height:1.1;margin-bottom:16px;"><em style="color:var(--gold);font-style:italic;">Secure</em> Your Place</h2>
+      <p style="font-size:16px;color:var(--cream-muted);max-width:480px;line-height:1.75;margin-bottom:8px;">Join us on 23 May 2026 at Judge Business School, University of Cambridge.</p>
+    </div>
+  </div>
+
+  <!-- embed reveal wrapper — hidden until Register is clicked -->
+  <div id="luma-wrap" style="max-height:0;overflow:hidden;transition:max-height 1.1s cubic-bezier(.4,0,.2,1),opacity .8s ease;opacity:0;">
+    <!-- scroll hint -->
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:64px;margin-bottom:20px;opacity:.6;">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="5" y="1" width="6" height="10" rx="3" stroke="#C9A84C" stroke-width="1"/><circle cx="8" cy="4" r="1" fill="#C9A84C"><animate attributeName="cy" values="4;7;4" dur="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;0.3;1" dur="1.6s" repeatCount="indefinite"/></circle><path d="M4 13l4 3 4-3" stroke="#C9A84C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span style="font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(201,168,76,.7);font-family:'EB Garamond',serif;">Scroll within form</span>
+    </div>
+    <iframe
+      id="luma-frame"
+      src=""
+      data-src="https://luma.com/embed/event/evt-vjzCdLSDeoE5XZJ/simple"
+      width="100%"
+      height="680"
+      frameborder="0"
+      style="display:block;width:100%;border:none;border-top:1px solid rgba(201,168,76,.15);"
+      allow="fullscreen; payment"
+      aria-hidden="false"
+      tabindex="0"
+    ></iframe>
+  </div>
+</section>
+
+<script>
+(function(){
+  function openEmbed(){
+    const wrap=document.getElementById('luma-wrap');
+    const frame=document.getElementById('luma-frame');
+    if(wrap.style.maxHeight==='none'||parseInt(wrap.style.maxHeight)>0)return;
+    if(!frame.src&&frame.dataset.src)frame.src=frame.dataset.src;
+    wrap.style.maxHeight='900px';
+    wrap.style.opacity='1';
+  }
+  document.querySelectorAll('a[href="#register"]').forEach(a=>{
+    a.addEventListener('click',()=>setTimeout(openEmbed,600));
+  });
+})();
+</script>
+
 <footer id="footer">
   <div class="footer-inner">
     <div class="footer-grid">
@@ -931,7 +982,7 @@ img{display:block;max-width:100%;}
       <div>
         <span class="footer-col-title">Information</span>
         <ul class="footer-links">
-          <li><a href="#">Register</a></li>
+          <li><a href="#register">Register</a></li>
           <li><a href="#">Venue &amp; Travel</a></li>
           <li><a href="#">Press &amp; Media</a></li>
           <li><a href="#">Privacy Policy</a></li>
