@@ -172,20 +172,21 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .filter-btn{font-family:'EB Garamond',serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;padding:7px 18px;border:.5px solid rgba(201,168,76,.22);background:transparent;color:var(--cream-faint);cursor:pointer;transition:all .3s;}
 .filter-btn:hover,.filter-btn.active{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.06);}
 .speakers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:2px;margin-bottom:48px;}
-.speaker-card{position:relative;overflow:hidden;background:rgba(255,255,255,.02);border:.5px solid rgba(201,168,76,.08);cursor:pointer;transition:border-color .4s;}
+.speaker-card{position:relative;overflow:hidden;background:rgba(255,255,255,.02);border:.5px solid rgba(201,168,76,.08);cursor:pointer;transition:border-color .4s,transform .3s,background .3s;display:flex;flex-direction:column;}
 .speaker-card:hover{border-color:rgba(201,168,76,.3);}
 .speaker-card.hidden{display:none;}
+.speaker-card:hover{transform:translateY(-2px);background:rgba(255,255,255,.03);}
 .speaker-img-wrap{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(139,26,26,.3),rgba(13,6,5,.9));}
+.speaker-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
 .speaker-initials{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(201,168,76,.25);}
-.speaker-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,6,5,.95) 0%,rgba(13,6,5,.4) 50%,transparent 100%);opacity:0;transition:opacity .4s;}
-.speaker-card:hover .speaker-overlay{opacity:1;}
-.speaker-details{position:absolute;bottom:0;left:0;right:0;padding:20px;transform:translateY(8px);transition:transform .4s;}
-.speaker-card:hover .speaker-details{transform:none;}
-.speaker-tag{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:6px;}
-.speaker-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--cream);display:block;margin-bottom:3px;}
-.speaker-role{font-size:12px;color:var(--cream-faint);display:block;line-height:1.4;}
-.speaker-bio-hover{position:absolute;inset:0;background:rgba(13,6,5,.96);padding:24px;display:flex;flex-direction:column;justify-content:center;opacity:0;transition:opacity .4s;pointer-events:none;}
-.speaker-card:hover .speaker-bio-hover{opacity:1;pointer-events:auto;}
+.speaker-card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:5px;min-height:104px;}
+.speaker-tag{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;}
+.speaker-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--cream);display:block;line-height:1.08;}
+.speaker-role{font-size:13px;color:var(--cream-faint);display:block;line-height:1.4;}
+.speaker-bio-hover{position:absolute;inset:0;background:rgba(13,6,5,.92);padding:22px;display:flex;flex-direction:column;justify-content:center;opacity:0;transition:opacity .35s ease,pointer-events .35s ease;pointer-events:none;}
+.speaker-card:hover .speaker-bio-hover,
+.speaker-img-wrap:hover ~ .speaker-bio-hover,
+.speaker-card-body:hover ~ .speaker-bio-hover{opacity:1;pointer-events:auto;}
 .speaker-bio-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--gold);margin-bottom:8px;}
 .speaker-bio-text{font-size:13px;line-height:1.65;color:var(--cream-muted);}
 .speakers-cta{text-align:center;}
@@ -472,26 +473,7 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
   color:rgba(245,236,215,.06);
   z-index:0;
 }
-/* Diagonal linen texture overlay at 15% opacity */
 .speaker-img-wrap{isolation:isolate;}
-.speaker-img-wrap::before{
-  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
-  background-image:
-    repeating-linear-gradient(-45deg,rgba(245,236,215,.07) 0,rgba(245,236,215,.07) 1px,transparent 0,transparent 50%),
-    repeating-linear-gradient(45deg,rgba(245,236,215,.04) 0,rgba(245,236,215,.04) 1px,transparent 0,transparent 50%);
-  background-size:5px 5px;
-  opacity:.9;
-}
-/* Gold gradient fade at bottom where name appears */
-.speaker-img-wrap::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;
-  height:90px;
-  background:linear-gradient(to top,rgba(201,168,76,.16) 0%,rgba(201,168,76,.06) 40%,transparent 100%);
-  z-index:2;pointer-events:none;
-}
-/* Ensure overlay and details stack above new pseudo-elements */
-.speaker-overlay{z-index:3;}
-.speaker-details{z-index:4;}
 .speaker-bio-hover{z-index:5;}
 
 /* ════════════════════════════════════════════════════
@@ -1452,17 +1434,18 @@ document.querySelectorAll('.net-stat-num[data-target]').forEach(el=>netRo.observ
 // ════════════════════════════════════════════════════
 (function(){
 const speakers=[
-  {name:'John McLean OBE',role:'Chair, Institute of Directors (IoD) London',org:'China UK Business Development Centre',tag:'opening',init:'JM',bio:'Mr. McLean is a seasoned leader with a profound track record in global capital markets. As Chairman and CEO of multiple international organisations, his strategic expertise spans across the UK and beyond. In recognition of his transformative impact on UK-China business relations, he was appointed OBE in the 2014 New Year Honours.'},
-  {name:'Dr. William Lo',role:'Chairman, Charles K Kao Foundation & Board Member',org:'TVB Ltd',tag:'opening',init:'WL',bio:'Dr. William Lo is a world-renowned corporate strategist and a distinguished Cambridge alumnus. With a trajectory spanning from the helms of Citibank and China Unicom to pioneering roles in education and philanthropy, Dr. Lo bridges global capital with social impact. Named a "Global Leader for Tomorrow" by the WEF and appointed Justice of the Peace, he remains a pivotal figure in shaping the future of international business.'},
+  {name:'Gishan Dissanaike',role:'Dean of Cambridge Judge Business School',org:'University of Cambridge',tag:'opening',init:'GD',photo:'Speakers%20Photo/Gishan%20Dissanaike.png',bio:'Professor Dissanaike is a globally recognized authority in finance and corporate governance. His visionary research spans market efficiency, behavioral finance, and emerging markets. A leading financial economist, he bridges the gap between rigorous academic theory and global strategic practice for top-tier investment banks and regulatory bodies.'},
+  {name:'John McLean OBE',role:'Chair, Institute of Directors (IoD) London',org:'China UK Business Development Centre',tag:'opening',init:'JM',photo:'Speakers%20Photo/John%20%20McLean%20OBE%20.png',bio:'Mr. McLean is a seasoned leader with a profound track record in global capital markets. As Chairman and CEO of multiple international organisations, his strategic expertise spans across the UK and beyond. In recognition of his transformative impact on UK-China business relations, he was appointed OBE in the 2014 New Year Honours.'},
+  {name:'Dr. William Lo',role:'Chairman, Charles K Kao Foundation & Board Member',org:'TVB Ltd',tag:'opening',init:'WL',photo:'Speakers%20Photo/Dr%20William.png',bio:'Dr. William Lo is a world-renowned corporate strategist and a distinguished Cambridge alumnus. With a trajectory spanning from the helms of Citibank and China Unicom to pioneering roles in education and philanthropy, Dr. Lo bridges global capital with social impact. Named a "Global Leader for Tomorrow" by the WEF and appointed Justice of the Peace, he remains a pivotal figure in shaping the future of international business.'},
   {name:'James Zhang',role:'CEO of APAC and CIS Regions',org:'ZTE',tag:'panelist',init:'JZ',bio:'From a dedicated telecommunications engineer to the CEO of APAC and CIS Regions, James Zhang embodies the fusion of technical mastery and global strategy. With over 20 years of experience across 100+ nations, he has been a pivotal force in ZTE’s international ascent. A visionary leader and Cambridge alumnus, he continues to drive the evolution of global connectivity at the world\'s most influential industry forums.'},
-  {name:'Ling Lei',role:'JD Group Head of China Brand Globalization',org:'JD Group',tag:'panelist',init:'LL',bio:'Mr. Ling Lei is a pivotal figure in JD.com’s global expansion. By leveraging JD’s integrated supply chain, cutting-edge logistics, and digital ecosystem, he empowers Chinese brands to scale globally with unprecedented efficiency. With a profound grasp of China’s digital economy and consumer evolution, he provides indispensable insights for enterprises navigating the complexities of international markets.'},
-  {name:'Xiaowei Zhu',role:'Amazon AWS International Business Development Head',org:'AWS',tag:'panelist',init:'XZ',bio:'An accomplished strategist and Cambridge alumnus, Xiaowei Zhu leads AWS’s international expansion across EMEA and Greater China. He is the architect of go-to-market (GTM) strategies that drive the global adoption of cloud innovation. By bridging AWS’s unparalleled global capabilities with senior executive vision, he serves as a pivotal advisor to leaders navigating the complexities of international growth and digital transformation.'},
-  {name:'Xinrui Liu',role:'Dify Europe Manager and General Counsel',org:'Dify Europe',tag:'panelist',init:'XL',bio:'An international business and legal strategist, Xinrui Liu serves as General Manager and General Counsel for Dify Europe, leading regional expansion and partnerships while ensuring AI innovation aligns with regulatory and data privacy requirements. With a background at King & Wood Mallesons, she brings expertise in cross-border M&A, risk, and deal structuring—enabling enterprises to scale AI confidently in highly regulated environments.'},
+  {name:'Ling Lei',role:'JD Group Head of China Brand Globalization',org:'JD Group',tag:'panelist',init:'LL',photo:'Speakers%20Photo/Ling%20Lei%20.png',bio:'Mr. Ling Lei is a pivotal figure in JD.com’s global expansion. By leveraging JD’s integrated supply chain, cutting-edge logistics, and digital ecosystem, he empowers Chinese brands to scale globally with unprecedented efficiency. With a profound grasp of China’s digital economy and consumer evolution, he provides indispensable insights for enterprises navigating the complexities of international markets.'},
+  {name:'Xiaowei Zhu',role:'Amazon AWS International Business Development Head',org:'AWS',tag:'panelist',init:'XZ',photo:'Speakers%20Photo/Xiaowei%20Zhu%20.png',bio:'An accomplished strategist and Cambridge alumnus, Xiaowei Zhu leads AWS’s international expansion across EMEA and Greater China. He is the architect of go-to-market (GTM) strategies that drive the global adoption of cloud innovation. By bridging AWS’s unparalleled global capabilities with senior executive vision, he serves as a pivotal advisor to leaders navigating the complexities of international growth and digital transformation.'},
+  {name:'Xinrui Liu',role:'Dify Europe Manager and General Counsel',org:'Dify Europe',tag:'panelist',init:'XL',photo:'Speakers%20Photo/Xinrui%20Liu%20.png',bio:'An international business and legal strategist, Xinrui Liu serves as General Manager and General Counsel for Dify Europe, leading regional expansion and partnerships while ensuring AI innovation aligns with regulatory and data privacy requirements. With a background at King & Wood Mallesons, she brings expertise in cross-border M&A, risk, and deal structuring—enabling enterprises to scale AI confidently in highly regulated environments.'},
   {name:'Changbo Liu',role:'Executive Director & General Manager',org:'CloudChain',tag:'panelist',init:'CL',bio:'Mr. Liu Changbo is the Executive Director and General Manager of CloudChain, China’s premier supply chain finance platform initiated by 7 major SOEs, including CRRC and CRCC. Under his leadership, CloudChain achieves an annual loan volume of 700 billion RMB. Leveraging industrial synergy and FinTech innovation, Mr. Liu is a visionary leader dedicated to digitizing supply chain ecosystems and driving high-impact financial inclusion across China’s leading industrial sectors.'},
   {name:'Kamiar Mohaddes',role:'Macroeconomist, Director of the Cambridge Global Executive MBA programme',org:'University of Cambridge',tag:'moderator',init:'KM',bio:'Dr. Mohaddes is a distinguished economist whose work bridges macroeconomics, energy transition, and global market dynamics. As a strategic advisor to governments and central banks, he offers unparalleled insights into capital flows and emerging market shifts. For founders and investors navigating an era of geopolitical volatility and energy transformation, his perspective provides the essential compass for global scaling and strategic resilience.'},
   {name:'Gary Yang',role:'Founder of Sky Saga Capital',org:'Sky Saga Capital',tag:'panelist',init:'GY',bio:'A visionary venture leader and serial entrepreneur, Gary Yang is the Founding Partner of Sky Saga Capital. With a Master’s in Engineering from Tsinghua University and 15+ years of VC experience, he has shaped the trajectory of over 150 innovative projects. As a mentor to the next generation of founders at Tsinghua and CKGSB, and a strategic advisor to national ministries, he excels at identifying high-potential startups and driving long-term value through masterful resource integration.'},
   {name:'Jerry Wu',role:'Partner at LongRiver Investments & Veteran DeepTech Investor',org:'LongRiver Investments',tag:'panelist',init:'JW',bio:'With 27+ years in DeepTech and Bio-Pharma, Dr. Jerry is a Partner at LongRiver Investments (managing $385M) and former CIO of TUS UK (£250M+ invested). A pioneer in AI-driven R&D, he served as Lead Scientist at AstraZeneca. As a Fellow of Homerton College, Cambridge, he bridges frontier science with global capital to drive high-impact industrial transformation.'},
-  {name:'Lin Yue',role:'Strategic Leader & Former Head of Strategic Business at Goldman Sachs',org:'Goldman Sachs',tag:'panelist',init:'LY',bio:'A seasoned institutional leader with a 15-year tenure at Goldman Sachs as Head of Strategic Business, Ms. Linyue is a specialist in capital raising and global strategic partnerships. With a distinguished track record of driving growth across international markets, she seamlessly bridges top-tier financial expertise with visionary leadership to deliver long-term institutional value.'},
+  {name:'Lin Yue',role:'Strategic Leader & Former Head of Strategic Business at Goldman Sachs',org:'Goldman Sachs',tag:'panelist',init:'LY',photo:'Speakers%20Photo/Lin%20Yue%20.jpeg',bio:'A seasoned institutional leader with a 15-year tenure at Goldman Sachs as Head of Strategic Business, Ms. Linyue is a specialist in capital raising and global strategic partnerships. With a distinguished track record of driving growth across international markets, she seamlessly bridges top-tier financial expertise with visionary leadership to deliver long-term institutional value.'},
   {name:'More to Come',role:'More speakers will be announced soon',org:'',tag:'coming',init:'MC',bio:'Additional speakers will be announced soon.'},
 ];
 const grid=document.getElementById('speakersGrid');
@@ -1471,15 +1454,15 @@ speakers.forEach((s,i)=>{
   const c=document.createElement('div');
   c.className='speaker-card reveal';c.dataset.reveal='';c.dataset.filter=s.tag;
   c.innerHTML=`
-    <div class="speaker-img-wrap" style="background:${colors[i%3]};">
-      <div class="speaker-initials">${s.init}</div>
-      <div class="speaker-overlay"></div>
-      <div class="speaker-details">
-        <span class="speaker-tag">${s.tag}</span>
-        <span class="speaker-name">${s.name}</span>
-        <span class="speaker-role">${s.role} · ${s.org}</span>
-      </div>
+    <div class="speaker-img-wrap" style="background:${s.photo ? 'transparent' : colors[i%3]};">
+      ${s.photo ? `<img class="speaker-photo" src="${s.photo}" alt="${s.name}">` : `<div class="speaker-initials">${s.init}</div>`}
     </div>
+    <div class="speaker-card-body">
+      <span class="speaker-tag">${s.tag}</span>
+      <span class="speaker-name">${s.name}</span>
+      <span class="speaker-role">${s.role}${s.org ? ` · ${s.org}` : ''}</span>
+    </div>`;
+  c.innerHTML += `
     <div class="speaker-bio-hover">
       <div class="speaker-bio-name">${s.name}</div>
       <p class="speaker-bio-text">${s.bio||`${s.role} at ${s.org}. A leading voice at the intersection of Chinese innovation and global business strategy, contributing key insights to the Forum's ${s.tag} sessions.`}</p>
