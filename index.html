@@ -204,6 +204,7 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .prog-date-sub{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,236,215,.65);}
 .prog-date-ics{font-family:'EB Garamond',serif;font-size:12px;letter-spacing:.16em;color:var(--gold);text-decoration:none;text-transform:uppercase;border:.5px solid rgba(201,168,76,.4);padding:8px 16px;transition:all .3s;}
 .prog-date-ics:hover{background:var(--gold);color:var(--base);}
+.prog-note{font-size:12px;letter-spacing:.04em;color:rgba(245,236,215,.62);margin:-28px 0 34px;}
 .prog-sessions{display:grid;grid-template-columns:1fr 1fr;gap:0 2px;margin-bottom:40px;}
 .prog-col-label{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--crimson);padding:0 0 18px 0;border-bottom:1.5px solid var(--crimson);margin-bottom:0;}
 .prog-session{border-bottom:.5px solid rgba(139,26,26,.15);cursor:pointer;transition:background .25s;}
@@ -270,6 +271,11 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .comp-prize-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--cream);display:block;margin-bottom:3px;}
 .comp-prize-desc{font-size:13px;color:var(--cream-faint);}
 .comp-prize-medal{font-size:22px;}
+.comp-prize-single{padding:24px 26px;background:linear-gradient(90deg,rgba(201,168,76,.08),rgba(255,255,255,.02));border-color:rgba(201,168,76,.28);}
+.comp-prize-single .comp-prize-rank{font-size:44px;min-width:58px;color:rgba(201,168,76,.92);}
+.comp-prize-single .comp-prize-title{font-size:28px;letter-spacing:.02em;}
+.comp-prize-single .comp-prize-desc{font-size:15px;color:var(--cream-muted);}
+.comp-prize-single .comp-prize-medal{font-size:30px;}
 .comp-prize:nth-child(1) .comp-prize-rank{color:rgba(201,168,76,.8);}
 .comp-prize:nth-child(2) .comp-prize-rank{color:rgba(192,192,192,.6);}
 .comp-prize:nth-child(3) .comp-prize-rank{color:rgba(205,127,50,.55);}
@@ -778,14 +784,15 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
       </div>
       <a href="#" class="prog-date-ics">+ Add to Calendar</a>
     </div>
+    <div class="prog-note reveal" data-reveal>* All timings are subject to slight changes on the day · 具体时间会根据当天情况微调</div>
 
     <div class="prog-sessions" id="progSessions">
       <div>
         <div class="prog-col-label reveal" data-reveal>Morning · 上午</div>
         <div id="morningCol"></div>
         <div class="prog-lunch-banner reveal" data-reveal>
-          <span class="prog-lunch-label">Lunch · 午宴</span>
-          <span class="prog-lunch-time">12:40 — 13:30</span>
+          <span class="prog-lunch-label">Lunch Break · 午休</span>
+          <span class="prog-lunch-time">13:00 — 14:00</span>
         </div>
       </div>
       <div>
@@ -830,12 +837,6 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
       <div class="comp-left">
         <h2 class="comp-headline reveal" data-reveal><em>Prove</em> Your<br>Strategic Edge</h2>
         <p class="comp-body reveal reveal-delay-1" data-reveal>The CCBF Case Competition challenges teams to develop innovative solutions to real business challenges at the China–UK interface. Finals take place live on the Forum stage before a panel of industry judges.</p>
-        <div class="comp-timeline reveal reveal-delay-2" data-reveal>
-          <div class="comp-tl-item"><div class="comp-tl-dot"></div><div class="comp-tl-date">1 Mar 2026</div><div class="comp-tl-desc">Registration opens</div></div>
-          <div class="comp-tl-item"><div class="comp-tl-dot"></div><div class="comp-tl-date">30 Apr 2026</div><div class="comp-tl-desc">Case brief released to teams</div></div>
-          <div class="comp-tl-item"><div class="comp-tl-dot"></div><div class="comp-tl-date">15 May 2026</div><div class="comp-tl-desc">Submissions deadline</div></div>
-          <div class="comp-tl-item"><div class="comp-tl-dot"></div><div class="comp-tl-date">23 May 2026</div><div class="comp-tl-desc">Live finals at Judge Business School (15:00–17:00)</div></div>
-        </div>
         <a href="#" class="btn-gold reveal reveal-delay-3" data-reveal>Enter Competition</a>
       </div>
       <div class="comp-right">
@@ -856,9 +857,7 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
           </svg>
         </div>
         <div class="comp-prizes reveal reveal-delay-1" data-reveal>
-          <div class="comp-prize"><div class="comp-prize-rank">I</div><div class="comp-prize-info"><span class="comp-prize-title">First Place</span><span class="comp-prize-desc">Trophy + £2,000 prize + mentorship</span></div><div class="comp-prize-medal">🥇</div></div>
-          <div class="comp-prize"><div class="comp-prize-rank">II</div><div class="comp-prize-info"><span class="comp-prize-title">Second Place</span><span class="comp-prize-desc">Trophy + £1,000 prize</span></div><div class="comp-prize-medal">🥈</div></div>
-          <div class="comp-prize"><div class="comp-prize-rank">III</div><div class="comp-prize-info"><span class="comp-prize-title">Third Place</span><span class="comp-prize-desc">Trophy + £500 prize</span></div><div class="comp-prize-medal">🥉</div></div>
+          <div class="comp-prize comp-prize-single"><div class="comp-prize-rank">I</div><div class="comp-prize-info"><span class="comp-prize-title">Winning Prize</span><span class="comp-prize-desc">Trophy + £2,000 prize + mentorship</span></div><div class="comp-prize-medal">🥇</div></div>
         </div>
       </div>
     </div>
@@ -1506,23 +1505,25 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
 // ════════════════════════════════════════════════════
 (function(){
 const morning=[
-  {time:'10:30–11:00',title:'Registration',cn:'签到',tag:'Arrival',meta:'Refreshments served',detail:'Delegates arrive and collect name badges. Networking breakfast available in the JBS atrium.'},
-  {time:'11:00–11:10',title:'Opening Remarks',cn:'开幕致辞',tag:'Ceremony',meta:'Gishan Dissanaike — Dean, Cambridge Judge Business School',detail:'The Dean of Cambridge Judge Business School officially opens the Third CCBF Forum.'},
-  {time:'11:10–11:30',title:'Guest Opening Remarks',cn:'嘉宾开幕致辞',tag:'Ceremony',meta:'2–3 Distinguished Guests',detail:'Senior dignitaries and guest speakers deliver opening addresses on the China–UK innovation relationship.'},
-  {time:'11:30–12:00',title:'Keynote Speakers',cn:'主旨演讲',tag:'Keynote',meta:'Representatives from leading Chinese global companies',detail:'Keynote addresses from C-suite leaders of China\'s most influential global technology companies.'},
-  {time:'12:00–13:00',title:'Panel Discussion I',cn:'圆桌论坛 I',tag:'Panel',meta:'Theme: AI Ecosystem · 3–5 Industry Experts',detail:'An in-depth discussion on the evolving AI ecosystem across China and the UK — from regulation and ethics to deployment at scale.'},
+  {time:'10:30–11:00',title:'Registration',cn:'嘉宾签到',meta:''},
+  {time:'11:00–11:10',title:'Opening Remarks',cn:'开幕致辞',meta:'Gishan Dissanaike, Dean of Cambridge Judge Business School 剑桥大学嘉治商学院院长'},
+  {time:'11:10–11:30',title:'Guest Opening Remarks',cn:'特邀嘉宾致辞',meta:''},
+  {time:'11:30–12:00',title:'Keynote Speakers',cn:'主旨演讲',meta:'Representatives from leading Chinese global companies 中国领先全球企业代表'},
+  {time:'12:00–13:00',title:'Panel Discussion 1',cn:'圆桌讨论',meta:'AI Ecosystem 人工智能生态系统'},
 ];
 const afternoon=[
-  {time:'13:30–14:00',title:'Keynote Session II',cn:'主旨发言 II',tag:'Keynote',meta:'Outstanding Chinese Entrepreneurs',detail:'Second keynote block featuring China\'s most celebrated entrepreneurs sharing their global expansion journeys.'},
-  {time:'14:00–15:00',title:'Panel Discussion II',cn:'圆桌论坛 II',tag:'Panel',meta:'Theme: China–UK Venture Capital Ecosystem · 3–5 Expert Panelists',detail:'Exploring the mechanics of cross-border venture capital — deal flow, due diligence, and building trust across cultures.'},
-  {time:'15:00–17:00',title:'Case Competition Finals',cn:'案例竞赛',tag:'Competition',meta:'Finalist Representatives',detail:'The top teams from the CCBF Case Competition present their solutions before a panel of senior industry judges.'},
-  {time:'17:00–18:00',title:'Networking & Reception',cn:'交流与酒会',tag:'Networking',meta:'All Attendees',detail:'Drinks reception and structured networking. A unique opportunity to connect with China–UK business leaders in an intimate setting.'},
-  {time:'18:00–18:30',title:'Closing Ceremony',cn:'闭幕式',tag:'Ceremony',meta:'Keynote Speaker · Closing Remarks',detail:'The Forum draws to a close with reflections from senior speakers and an invitation to the Fourth CCBF.'},
+  {time:'14:00–14:30',title:'Keynote Speakers',cn:'主旨演讲',meta:'Outstanding Chinese entrepreneurs 杰出中国企业家'},
+  {time:'14:30–15:30',title:'Panel Discussion 2',cn:'圆桌讨论',meta:'China–UK entrepreneur & Investment Ecosystem 中英创业与投资生态系统'},
+  {time:'15:30–16:30',title:'Panel Discussion 3',cn:'圆桌讨论',meta:'Finance & Capital Markets in a Changing World 全球变局下的金融与资本市场'},
+  {time:'15:30–17:30',title:'Case Competition',cn:'中国案例分析大赛（sub-event）',meta:'Final Round 总决赛'},
+  {time:'17:30–18:00',title:'Networking & Reception',cn:'自由联结时间',meta:''},
+  {time:'18:00–18:30',title:'Closing Ceremony',cn:'闭幕仪式',meta:''},
 ];
 function buildSession(s){
-  const d=document.createElement('div');d.className='prog-session reveal';d.dataset.reveal='';
-  d.innerHTML=`<div class="prog-session-head"><span class="prog-time">${s.time}</span><div class="prog-session-body"><span class="prog-session-title">${s.title}</span><span class="prog-session-cn">${s.cn}</span><span class="prog-session-meta">${s.meta}</span><span class="prog-session-tag">${s.tag}</span></div><div class="prog-session-expand">+</div></div><div class="prog-session-detail"><p>${s.detail}</p></div>`;
-  d.querySelector('.prog-session-head').addEventListener('click',()=>d.classList.toggle('open'));
+  const d=document.createElement('div');d.className='prog-session reveal up';d.dataset.reveal='';
+  const hasDetail=!!s.detail;
+  d.innerHTML=`<div class="prog-session-head"><span class="prog-time">${s.time}</span><div class="prog-session-body"><span class="prog-session-title">${s.title}</span><span class="prog-session-cn">${s.cn}</span>${s.meta?`<span class="prog-session-meta">${s.meta}</span>`:''}</div>${hasDetail?'<div class="prog-session-expand">+</div>':''}</div>${hasDetail?`<div class="prog-session-detail"><p>${s.detail}</p></div>`:''}`;
+  if(hasDetail)d.querySelector('.prog-session-head').addEventListener('click',()=>d.classList.toggle('open'));
   return d;
 }
 const mc=document.getElementById('morningCol'),ac=document.getElementById('afternoonCol');
