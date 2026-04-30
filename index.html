@@ -754,6 +754,7 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
     </div>
     <div class="speakers-filters reveal" data-reveal>
       <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="opening">Opening</button>
       <button class="filter-btn" data-filter="keynote">Keynote</button>
       <button class="filter-btn" data-filter="panelist">Panelists</button>
       <button class="filter-btn" data-filter="moderator">Moderators</button>
@@ -1450,6 +1451,7 @@ document.querySelectorAll('.net-stat-num[data-target]').forEach(el=>netRo.observ
 // ════════════════════════════════════════════════════
 (function(){
 const speakers=[
+  {name:'John McLean OBE',role:'Chair, Institute of Directors (IoD) London',org:'China UK Business Development Centre',tag:'opening',init:'JM',bio:'Mr. McLean is a seasoned leader with a profound track record in global capital markets. As Chairman and CEO of multiple international organisations, his strategic expertise spans across the UK and beyond. In recognition of his transformative impact on UK-China business relations, he was appointed OBE in the 2014 New Year Honours.'},
   {name:'Dr. Wei Chen',role:'Chief AI Officer',org:'Baidu',tag:'keynote',init:'WC'},
   {name:'Prof. Sarah Liu',role:'Dean of Research',org:'Judge Business School',tag:'keynote',init:'SL'},
   {name:'James Wu',role:'Managing Partner',org:'Sequoia China',tag:'panelist',init:'JW'},
@@ -1480,7 +1482,7 @@ speakers.forEach((s,i)=>{
     </div>
     <div class="speaker-bio-hover">
       <div class="speaker-bio-name">${s.name}</div>
-      <p class="speaker-bio-text">${s.role} at ${s.org}. A leading voice at the intersection of Chinese innovation and global business strategy, contributing key insights to the Forum's ${s.tag} sessions.</p>
+      <p class="speaker-bio-text">${s.bio||`${s.role} at ${s.org}. A leading voice at the intersection of Chinese innovation and global business strategy, contributing key insights to the Forum's ${s.tag} sessions.`}</p>
     </div>`;
   grid.appendChild(c);
   // stagger reveal
