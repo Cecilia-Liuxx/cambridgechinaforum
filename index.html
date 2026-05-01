@@ -276,6 +276,8 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .comp-sponsor{display:flex;align-items:center;gap:12px;margin-top:18px}
 .comp-sponsor .sponsor-label{font-size:12px;color:var(--cream-faint);letter-spacing:.12em;text-transform:uppercase}
 .comp-sponsor .sponsor-logo img{max-width:120px;height:auto;display:block}
+ .comp-prize-icon{display:block;margin-bottom:6px}
+ .comp-prize-icon .champ-trophy-svg{width:56px;height:56px}
 @media (max-width:900px){
   .comp-timeline-list{flex-direction:column;gap:8px}
   .comp-timeline-list::before{display:none}
@@ -852,6 +854,9 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
         </div>
         <div class="comp-prizes reveal reveal-delay-1" data-reveal>
           <div class="comp-prize comp-prize-top">
+            <div class="comp-prize-icon" aria-hidden="true">
+              <svg width="56" height="56" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="champ-trophy-svg"><path d="M60 50 L120 50 L112 95 C110 108 100 118 90 118 C80 118 70 108 68 95 Z" stroke="rgba(201,168,76,.95)" stroke-width="2" fill="rgba(201,168,76,.06)"/><path d="M80 118 L76 132 L104 132 L100 118" stroke="rgba(201,168,76,.6)" stroke-width="1.2" fill="rgba(201,168,76,.03)"/></svg>
+            </div>
             <div class="comp-prize-rank">CHAMPION</div>
             <div class="comp-prize-info">
               <span class="comp-prize-amount">£2,000 <span class="comp-prize-voucher">+ £1,000 Alibaba Cloud Voucher</span></span>
