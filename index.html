@@ -269,7 +269,7 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .comp-trophy{width:260px;height:260px}
 .comp-prizes{display:flex;flex-direction:row;gap:20px;align-items:flex-start}
 .comp-prize{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:28px;background:rgba(255,255,255,.02);border:.5px solid rgba(201,168,76,.08);border-radius:10px;min-height:260px}
-.comp-prize > .comp-prize-icon, .comp-prize > .comp-prize-rank{height:72px;display:flex;align-items:center;justify-content:center}
+.comp-prize > .comp-prize-header{height:86px;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .comp-prize .comp-prize-info{display:flex;flex-direction:column;align-items:center;justify-content:center}
 .comp-prize .comp-prize-amount{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--cream);margin:0}
 .comp-prize .comp-prize-voucher{display:block;font-size:13px;color:var(--cream-muted);margin-top:6px}
@@ -863,24 +863,30 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
         </div>
         <div class="comp-prizes reveal reveal-delay-1" data-reveal>
           <div class="comp-prize comp-prize-top">
-            <div class="comp-prize-icon" aria-hidden="true">
-              <svg width="56" height="56" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="champ-trophy-svg"><path d="M60 50 L120 50 L112 95 C110 108 100 118 90 118 C80 118 70 108 68 95 Z" stroke="rgba(201,168,76,.95)" stroke-width="2" fill="rgba(201,168,76,.06)"/><path d="M80 118 L76 132 L104 132 L100 118" stroke="rgba(201,168,76,.6)" stroke-width="1.2" fill="rgba(201,168,76,.03)"/></svg>
+            <div class="comp-prize-header">
+              <div class="comp-prize-icon" aria-hidden="true">
+                <svg width="56" height="56" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" class="champ-trophy-svg"><path d="M60 50 L120 50 L112 95 C110 108 100 118 90 118 C80 118 70 108 68 95 Z" stroke="rgba(201,168,76,.95)" stroke-width="2" fill="rgba(201,168,76,.06)"/><path d="M80 118 L76 132 L104 132 L100 118" stroke="rgba(201,168,76,.6)" stroke-width="1.2" fill="rgba(201,168,76,.03)"/></svg>
+              </div>
+              <div class="comp-prize-rank">CHAMPION</div>
             </div>
-            <div class="comp-prize-rank">CHAMPION</div>
             <div class="comp-prize-info">
               <span class="comp-prize-amount">£2,000 <span class="comp-prize-voucher">+ £1,000 Alibaba Cloud Voucher</span></span>
             </div>
             <div class="comp-prize-medal">🥇</div>
           </div>
           <div class="comp-prize">
-            <div class="comp-prize-rank">RUNNER-UP</div>
+            <div class="comp-prize-header">
+              <div class="comp-prize-rank">RUNNER-UP</div>
+            </div>
             <div class="comp-prize-info">
               <span class="comp-prize-amount">£500 <span class="comp-prize-voucher">+ Alibaba Cloud Voucher</span></span>
             </div>
             <div class="comp-prize-medal">🥈</div>
           </div>
           <div class="comp-prize">
-            <div class="comp-prize-rank">THIRD</div>
+            <div class="comp-prize-header">
+              <div class="comp-prize-rank">THIRD</div>
+            </div>
             <div class="comp-prize-info">
               <span class="comp-prize-amount">£300 <span class="comp-prize-voucher">+ Alibaba Cloud Voucher</span></span>
             </div>
