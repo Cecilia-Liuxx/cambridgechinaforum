@@ -276,6 +276,8 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .comp-sponsor{display:flex;align-items:center;gap:12px;margin-top:18px}
 .comp-sponsor .sponsor-label{font-size:12px;color:var(--cream-faint);letter-spacing:.12em;text-transform:uppercase}
 .comp-sponsor .sponsor-logo img{max-width:120px;height:auto;display:block}
+.comp-left .comp-sponsor{justify-content:flex-end;margin-top:14px}
+.comp-left .comp-sponsor .sponsor-logo img{max-width:110px}
  .comp-prize-icon{display:block;margin-bottom:6px}
  .comp-prize-icon .champ-trophy-svg{width:56px;height:56px}
 @media (max-width:900px){
@@ -834,14 +836,18 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
   <div class="comp-inner">
     <div class="sec-overline reveal" data-reveal>
       <div class="sec-overline-rule"></div>
-      <span class="sec-overline-text">Case Competition · 案例竞赛</span>
+      <span class="sec-overline-text">AI STARTUP COMPETITION · 案例竞赛</span>
       <div class="sec-overline-rule r"></div>
     </div>
     <div class="comp-layout">
       <div class="comp-left">
-        <h2 class="comp-headline reveal" data-reveal><em>Prove</em> Your<br>Strategic Edge</h2>
-        <p class="comp-body reveal reveal-delay-1" data-reveal>The CCBF Case Competition challenges teams to develop innovative solutions to real business challenges at the China–UK interface. Finals take place live on the Forum stage before a panel of industry judges.</p>
-        <a href="#" class="btn-gold reveal reveal-delay-3" data-reveal>Enter Competition</a>
+        <h2 class="comp-headline reveal" data-reveal>AI Startup Challenge</h2>
+        <p class="comp-body reveal reveal-delay-1" data-reveal>Building real-world AI solutions by connecting technology, markets, and entrepreneurial resources between the UK and China.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScy7C6CVyLgR71AtngerX5l8G2dLJGZCMCzJFwdfWVWKNkrdg/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn-gold reveal reveal-delay-3" data-reveal>Enter Competition</a>
+        <div class="comp-sponsor comp-sponsor-left reveal reveal-delay-4" data-reveal>
+          <span class="sponsor-label">Sponsored by</span>
+          <div class="sponsor-logo"><img src="Sponsor Logo/Alibaba Cloud.jpg" alt="Alibaba Cloud"></div>
+        </div>
       </div>
       <div class="comp-right">
         <div class="comp-timeline reveal" data-reveal>
@@ -879,10 +885,6 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
           </div>
         </div>
         <p class="comp-note reveal reveal-delay-2" data-reveal>All finalists receive access to judges, VC connections, mentorship, and resources.</p>
-        <div class="comp-sponsor reveal reveal-delay-3" data-reveal>
-          <span class="sponsor-label">Sponsored by</span>
-          <div class="sponsor-logo"><img src="Sponsor Logo/Alibaba Cloud.jpg" alt="Alibaba Cloud"></div>
-        </div>
       </div>
     </div>
   </div>
