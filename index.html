@@ -1504,6 +1504,8 @@ const colors=['rgba(139,26,26,.35)','rgba(90,14,14,.45)','rgba(45,10,10,.55)'];
 speakers.forEach((s,i)=>{
   const c=document.createElement('div');
   c.className='speaker-card reveal';c.dataset.reveal='';c.dataset.filter=s.tag;
+  c.dataset.name = s.name;
+  .speaker-card[data-name="Changbo Liu"] .speaker-photo{transform:scale(1.32);transform-origin:center top;}
   c.innerHTML=`
     <div class="speaker-img-wrap" style="background:${s.photo ? 'transparent' : colors[i%3]};">
       ${s.photo ? `<img class="speaker-photo" src="${s.photo}" alt="${s.name}">` : `<div class="speaker-initials">${s.init}</div>`}
