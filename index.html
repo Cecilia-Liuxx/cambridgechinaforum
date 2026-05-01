@@ -253,6 +253,7 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .comp-inner{max-width:1100px;margin:0 auto;padding:0 64px;position:relative;z-index:2;}
 .comp-layout{display:grid;grid-template-columns:1fr 1fr;gap:0 80px;align-items:start;}
 .comp-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5.5vw,70px);font-weight:300;color:var(--cream);margin-bottom:24px;line-height:1.05;}
+.comp-headline-accent{color:var(--gold);display:block}
 .comp-headline em{font-style:italic;color:var(--gold-light);}
 .comp-body{font-size:clamp(16px,1.6vw,19px);line-height:1.75;color:var(--cream-muted);margin-bottom:36px;}
 .comp-timeline{margin-bottom:40px;padding:18px 0;}
@@ -276,7 +277,7 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .comp-sponsor{display:flex;align-items:center;gap:12px;margin-top:18px}
 .comp-sponsor .sponsor-label{font-size:12px;color:var(--cream-faint);letter-spacing:.12em;text-transform:uppercase}
 .comp-sponsor .sponsor-logo img{max-width:120px;height:auto;display:block}
-.comp-left .comp-sponsor{justify-content:flex-end;margin-top:14px}
+.comp-left .comp-sponsor{justify-content:flex-start;margin-top:14px}
 .comp-left .comp-sponsor .sponsor-logo img{max-width:110px}
  .comp-prize-icon{display:block;margin-bottom:6px}
  .comp-prize-icon .champ-trophy-svg{width:56px;height:56px}
@@ -841,7 +842,7 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
     </div>
     <div class="comp-layout">
       <div class="comp-left">
-        <h2 class="comp-headline reveal" data-reveal>AI Startup Challenge</h2>
+        <h2 class="comp-headline reveal" data-reveal><span class="comp-headline-accent">AI Startup</span> Challenge</h2>
         <p class="comp-body reveal reveal-delay-1" data-reveal>Building real-world AI solutions by connecting technology, markets, and entrepreneurial resources between the UK and China.</p>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScy7C6CVyLgR71AtngerX5l8G2dLJGZCMCzJFwdfWVWKNkrdg/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn-gold reveal reveal-delay-3" data-reveal>Enter Competition</a>
         <div class="comp-sponsor comp-sponsor-left reveal reveal-delay-4" data-reveal>
