@@ -255,16 +255,34 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .comp-headline{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,5.5vw,70px);font-weight:300;color:var(--cream);margin-bottom:24px;line-height:1.05;}
 .comp-headline em{font-style:italic;color:var(--gold-light);}
 .comp-body{font-size:clamp(16px,1.6vw,19px);line-height:1.75;color:var(--cream-muted);margin-bottom:36px;}
-.comp-timeline{margin-bottom:40px;}
-.comp-tl-item{display:flex;gap:20px;align-items:flex-start;padding:16px 0;border-bottom:.5px solid rgba(201,168,76,.1);}
-.comp-tl-item:first-child{border-top:.5px solid rgba(201,168,76,.1);}
-.comp-tl-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:5px;}
-.comp-tl-date{font-size:12px;letter-spacing:.14em;color:rgba(201,168,76,.6);text-transform:uppercase;min-width:120px;}
-.comp-tl-desc{font-size:15px;color:var(--cream-muted);}
-.comp-right{padding-top:8px;}
-.comp-trophy-wrap{display:flex;justify-content:center;margin-bottom:36px;}
-.comp-trophy{width:180px;height:180px;}
-.comp-prizes{display:flex;flex-direction:column;gap:2px;}
+.comp-timeline{margin-bottom:40px;padding:18px 0;}
+.comp-timeline-list{position:relative;display:flex;justify-content:space-between;gap:12px;align-items:center;padding:28px 0 14px;margin:0;list-style:none}
+.comp-timeline-list::before{content:'';position:absolute;left:4%;right:4%;top:50%;height:2px;background:linear-gradient(90deg,rgba(201,168,76,.06),rgba(201,168,76,.14),rgba(201,168,76,.06));transform:translateY(-50%);}
+.comp-timeline-list li{flex:1;position:relative;text-align:center;padding:8px 6px}
+.comp-timeline-list li .tl-date{display:block;font-size:13px;letter-spacing:.18em;color:rgba(201,168,76,.8);text-transform:uppercase;margin-bottom:8px}
+.comp-timeline-list li .tl-dot{width:18px;height:18px;border-radius:50%;background:transparent;border:3px solid rgba(201,168,76,.12);box-shadow:0 0 0 4px rgba(201,168,76,.02) inset;display:inline-block;position:relative}
+.comp-timeline-list li .tl-dot::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:var(--gold)}
+.comp-timeline-list li .tl-desc{display:block;margin-top:12px;font-size:15px;color:var(--cream-muted)}
+.comp-right{padding-top:8px}
+.comp-trophy-wrap{display:flex;justify-content:center;margin-bottom:28px}
+.comp-trophy{width:220px;height:220px}
+.comp-prizes{display:flex;flex-direction:row;gap:20px;align-items:stretch}
+.comp-prize{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:28px;background:rgba(255,255,255,.02);border:.5px solid rgba(201,168,76,.08);border-radius:10px;min-height:130px}
+.comp-prize .comp-prize-rank{font-size:14px;letter-spacing:.12em;color:var(--cream);font-family:'EB Garamond',serif}
+.comp-prize .comp-prize-amount{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--cream);margin-top:4px}
+.comp-prize .comp-prize-voucher{display:block;font-size:13px;color:var(--cream-muted);margin-top:6px}
+.comp-prize-medal{font-size:26px}
+.comp-note{margin-top:16px;color:var(--cream-muted);font-size:14px;text-align:left}
+.comp-sponsor{display:flex;align-items:center;gap:12px;margin-top:18px}
+.comp-sponsor .sponsor-label{font-size:12px;color:var(--cream-faint);letter-spacing:.12em;text-transform:uppercase}
+.comp-sponsor .sponsor-logo img{max-width:120px;height:auto;display:block}
+@media (max-width:900px){
+  .comp-timeline-list{flex-direction:column;gap:8px}
+  .comp-timeline-list::before{display:none}
+  .comp-prizes{flex-direction:column}
+  .comp-trophy{width:160px;height:160px}
+  .comp-sponsor .sponsor-logo img{max-width:90px}
+}
 .comp-prize{display:flex;align-items:center;gap:16px;padding:18px 20px;background:rgba(255,255,255,.025);border:.5px solid rgba(201,168,76,.08);transition:border-color .3s,background .3s;}
 .comp-prize:hover{border-color:rgba(201,168,76,.25);background:rgba(201,168,76,.04);}
 .comp-prize-rank{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:rgba(201,168,76,.35);min-width:48px;line-height:1;}
