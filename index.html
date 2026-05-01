@@ -297,6 +297,13 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
   .comp-prize{width:320px;max-width:92%;margin:12px auto}
   .comp-prize > .comp-prize-header{height:70px}
 }
+@media (max-width:600px){
+  #competition .comp-inner{padding:0 12px}
+  .comp-prizes{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;padding:0}
+  .comp-prize{width:100%;max-width:360px;margin:14px auto;padding:20px;border-radius:12px}
+  .comp-prize > .comp-prize-header{height:64px}
+  .comp-note{text-align:center}
+}
 .comp-prize{display:flex;align-items:center;gap:16px;padding:18px 20px;background:rgba(255,255,255,.025);border:.5px solid rgba(201,168,76,.08);transition:border-color .3s,background .3s;}
 .comp-prize:hover{border-color:rgba(201,168,76,.25);background:rgba(201,168,76,.04);}
 .comp-prize-rank{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:300;color:rgba(201,168,76,.35);min-width:48px;line-height:1;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
