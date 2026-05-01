@@ -257,9 +257,9 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .comp-headline em{font-style:italic;color:var(--gold-light);}
 .comp-body{font-size:clamp(16px,1.6vw,19px);line-height:1.75;color:var(--cream-muted);margin-bottom:36px;}
 .comp-timeline{margin-bottom:40px;padding:18px 0;}
-.comp-timeline-list{position:relative;display:flex;justify-content:space-between;gap:12px;align-items:center;padding:28px 0 14px;margin:0;list-style:none}
+.comp-timeline-list{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:start;padding:28px 0 14px;margin:0;list-style:none}
 .comp-timeline-list::before{content:'';position:absolute;left:4%;right:4%;top:50%;height:2px;background:linear-gradient(90deg,rgba(201,168,76,.06),rgba(201,168,76,.14),rgba(201,168,76,.06));transform:translateY(-50%);}
-.comp-timeline-list li{flex:1;position:relative;text-align:center;padding:8px 6px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.comp-timeline-list li{position:relative;text-align:center;padding:8px 6px}
 .comp-timeline-list li .tl-date{display:block;font-size:13px;letter-spacing:.18em;color:rgba(201,168,76,.8);text-transform:uppercase;margin:0;padding-bottom:8px;line-height:1}
 .comp-timeline-list li .tl-dot{width:18px;height:18px;border-radius:50%;background:transparent;border:3px solid rgba(201,168,76,.12);box-shadow:0 0 0 4px rgba(201,168,76,.02) inset;display:inline-block;position:relative}
 .comp-timeline-list li .tl-dot::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:8px;height:8px;border-radius:50%;background:var(--gold)}
@@ -269,7 +269,7 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .comp-trophy{width:260px;height:260px}
 .comp-prizes{display:flex;flex-direction:row;gap:20px;align-items:flex-start}
 .comp-prize{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:28px;background:rgba(255,255,255,.02);border:.5px solid rgba(201,168,76,.08);border-radius:10px;min-height:260px}
-.comp-prize > .comp-prize-header{height:86px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.comp-prize > .comp-prize-header{height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .comp-prize .comp-prize-info{display:flex;flex-direction:column;align-items:center;justify-content:center}
 .comp-prize .comp-prize-amount{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--cream);margin:0}
 .comp-prize .comp-prize-voucher{display:block;font-size:13px;color:var(--cream-muted);margin-top:6px}
