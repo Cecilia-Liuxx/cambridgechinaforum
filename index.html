@@ -181,7 +181,9 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .speaker-initials{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(201,168,76,.25);}
 .speaker-card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:5px;min-height:104px;}
 .speaker-tag{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;}
-.speaker-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--cream);display:block;line-height:1.08;}
+.speaker-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--cream);display:flex;align-items:center;gap:8px;line-height:1.08;}
+.speaker-linkedin-btn{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;color:var(--gold);cursor:pointer;transition:color .3s,transform .2s;}
+.speaker-linkedin-btn:hover{color:var(--gold-light);transform:scale(1.15);}
 .speaker-role{font-size:13px;color:var(--cream-faint);display:block;line-height:1.4;}
 .speaker-bio-hover{position:absolute;inset:0;background:rgba(13,6,5,.92);padding:22px;display:flex;flex-direction:column;justify-content:center;opacity:0;transition:opacity .35s ease,pointer-events .35s ease;pointer-events:none;}
 .speaker-card:hover .speaker-bio-hover,
@@ -1485,7 +1487,7 @@ document.querySelectorAll('.net-stat-num[data-target]').forEach(el=>netRo.observ
 // ════════════════════════════════════════════════════
 (function(){
 const speakers=[
-  {name:'Gishan Dissanaike',role:'Dean of Cambridge Judge Business School',org:'University of Cambridge',tag:'opening',init:'GD',photo:'Speakers%20Photo/gishan-dissanaike.png',bio:'Professor Dissanaike is a globally recognized authority in finance and corporate governance. His visionary research spans market efficiency, behavioral finance, and emerging markets. A leading financial economist, he bridges the gap between rigorous academic theory and global strategic practice for top-tier investment banks and regulatory bodies.'},
+  {name:'Gishan Dissanaike',role:'Dean of Cambridge Judge Business School',org:'University of Cambridge',tag:'opening',init:'GD',photo:'Speakers%20Photo/gishan-dissanaike.png',linkedin:'https://www.linkedin.com/in/gishan-dissanaike-45a007285/',bio:'Professor Dissanaike is a globally recognized authority in finance and corporate governance. His visionary research spans market efficiency, behavioral finance, and emerging markets. A leading financial economist, he bridges the gap between rigorous academic theory and global strategic practice for top-tier investment banks and regulatory bodies.'},
   {name:'John McLean OBE',role:'Chair, Institute of Directors (IoD) London',org:'China UK Business Development Centre',tag:'opening',init:'JM',photo:'Speakers%20Photo/john-mclean-obe.png',bio:'Mr. McLean is a seasoned leader with a profound track record in global capital markets. As Chairman and CEO of multiple international organisations, his strategic expertise spans across the UK and beyond. In recognition of his transformative impact on UK-China business relations, he was appointed OBE in the 2014 New Year Honours.'},
   {name:'Dr. William Lo',role:'Chairman, Charles K Kao Foundation & Board Member',org:'TVB Ltd',tag:'opening',init:'WL',photo:'Speakers%20Photo/dr-william-lo.png',bio:'Dr. William Lo is a world-renowned corporate strategist and a distinguished Cambridge alumnus. With a trajectory spanning from the helms of Citibank and China Unicom to pioneering roles in education and philanthropy, Dr. Lo bridges global capital with social impact. Named a "Global Leader for Tomorrow" by the WEF and appointed Justice of the Peace, he remains a pivotal figure in shaping the future of international business.'},
   {name:'James Zhang',role:'CEO of APAC and CIS Regions',org:'ZTE',tag:'keynote',init:'JZ',photo:'Speakers%20Photo/james-zhang.png',bio:'From a dedicated telecommunications engineer to the CEO of APAC and CIS Regions, James Zhang embodies the fusion of technical mastery and global strategy. With over 20 years of experience across 100+ nations, he has been a pivotal force in ZTE’s international ascent. A visionary leader and Cambridge alumnus, he continues to drive the evolution of global connectivity at the world\'s most influential industry forums.'},
@@ -1510,7 +1512,7 @@ speakers.forEach((s,i)=>{
     </div>
     <div class="speaker-card-body">
       <span class="speaker-tag">${s.tag}</span>
-      <span class="speaker-name">${s.name}</span>
+      <span class="speaker-name">${s.name}${s.linkedin ? `<a href="${s.linkedin}" target="_blank" rel="noopener noreferrer" class="speaker-linkedin-btn" title="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.39v-1.2h-2.5v8.5h2.5v-4.34c0-.77.62-1.4 1.4-1.4.77 0 1.4.63 1.4 1.4v4.34h2.5M7 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-1 15h2.5v-8.5H6v8.5z"/></svg></a>` : ''}</span>
       <span class="speaker-role">${s.role}${s.org ? ` · ${s.org}` : ''}</span>
     </div>`;
   c.innerHTML += `
