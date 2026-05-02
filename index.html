@@ -267,8 +267,8 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .comp-right{padding-top:8px}
 .comp-trophy-wrap{display:flex;justify-content:center;margin-bottom:28px}
 .comp-trophy{width:260px;height:260px}
-.comp-prizes{display:flex;flex-direction:row;gap:20px;align-items:flex-start;justify-content:center;flex-wrap:wrap}
-.comp-prize{flex:0 1 320px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:28px;background:rgba(255,255,255,.02);border:.5px solid rgba(201,168,76,.08);border-radius:10px;min-height:260px}
+.comp-prizes{display:flex;flex-direction:row;gap:20px;align-items:flex-start;justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:12px 8px}
+.comp-prize{flex:0 0 320px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:20px;background:rgba(255,255,255,.02);border:.5px solid rgba(201,168,76,.08);border-radius:10px;min-height:220px}
 .comp-prize > .comp-prize-header{height:90px;display:flex;align-items:flex-end;justify-content:center}
 .comp-prize .comp-prize-info{display:flex;flex-direction:column;align-items:center;justify-content:center}
 .comp-prize .comp-prize-amount{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--cream);margin:0}
@@ -288,7 +288,6 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 @media (max-width:900px){
   .comp-timeline-list{flex-direction:column;gap:8px}
   .comp-timeline-list::before{display:none}
-  .comp-prizes{flex-direction:column}
   .comp-trophy{width:160px;height:160px}
   .comp-sponsor .sponsor-logo img{max-width:90px}
   .comp-prizes{align-items:center}
