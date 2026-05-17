@@ -320,12 +320,15 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .partners-inner .sec-overline-rule{background:linear-gradient(to right,transparent,rgba(139,26,26,.28));}
 .partners-inner .sec-overline-rule.r{background:linear-gradient(to left,transparent,rgba(139,26,26,.28));}
 .partners-tier{margin-bottom:56px;}
-.partners-tier-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--crimson);opacity:.6;margin-bottom:24px;display:block;}
-.partners-logos{display:flex;align-items:center;gap:0;flex-wrap:wrap;}
+.partners-tier-label{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--crimson);opacity:.82;margin:0 auto 24px;text-align:center;display:block;width:100%;}
+.partners-logos{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;width:100%;}
 .partner-logo-cell{padding:28px 36px;border:.5px solid rgba(139,26,26,.12);display:flex;align-items:center;justify-content:center;min-width:180px;transition:background .3s,border-color .3s;}
 .partner-logo-cell:hover{background:rgba(139,26,26,.04);border-color:rgba(139,26,26,.25);}
 .partner-logo-text{font-family:'Cormorant Garamond',serif;font-size:15px;letter-spacing:.12em;color:rgba(13,6,5,.5);text-transform:uppercase;font-weight:400;}
+.partner-logo img{max-width:120px;height:auto;display:block}
+.partner-logo img.semi-transparent{opacity:.7}
 .partner-logo-cell.featured .partner-logo-text{font-size:18px;color:rgba(13,6,5,.7);}
+.partner-logo-cell.featured{flex-direction:column;gap:12px;text-align:center;}
 .marquee-track{overflow:hidden;margin-bottom:56px;}
 .marquee-inner{display:flex;gap:0;animation:marquee 30s linear infinite;}
 .marquee-inner:hover{animation-play-state:paused;}
@@ -914,24 +917,19 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
     <div class="partners-tier reveal" data-reveal>
       <span class="partners-tier-label">Founding Institution</span>
       <div class="partners-logos">
-        <div class="partner-logo-cell featured"><span class="partner-logo-text">University of Cambridge<br><small style="font-size:.7em;letter-spacing:.06em">Judge Business School</small></span></div>
+        <div class="partner-logo-cell featured"><div class="partner-logo"><img class="semi-transparent" src="Sponsor%20Logo/Judge%20Business%20School.png" alt="Judge Business School"></div></div>
       </div>
     </div>
     <div class="partners-tier reveal" data-reveal>
       <span class="partners-tier-label">Gold Partners</span>
       <div class="partners-logos">
-        <div class="partner-logo-cell"><span class="partner-logo-text">Partner A</span></div>
-        <div class="partner-logo-cell"><span class="partner-logo-text">Partner B</span></div>
-        <div class="partner-logo-cell"><span class="partner-logo-text">Partner C</span></div>
+        <div class="partner-logo-cell"><div class="partner-logo"><img src="Sponsor-Logo/alibaba-cloud.jpg" alt="Alibaba Cloud"></div></div>
       </div>
     </div>
     <div class="partners-tier reveal" data-reveal>
       <span class="partners-tier-label">Silver Partners</span>
       <div class="partners-logos">
-        <div class="partner-logo-cell"><span class="partner-logo-text">Sponsor D</span></div>
-        <div class="partner-logo-cell"><span class="partner-logo-text">Sponsor E</span></div>
-        <div class="partner-logo-cell"><span class="partner-logo-text">Sponsor F</span></div>
-        <div class="partner-logo-cell"><span class="partner-logo-text">Sponsor G</span></div>
+        <div class="partner-logo-cell"><div class="partner-logo"><img class="semi-transparent" src="Sponsor%20Logo/AGIBOT.png" alt="AGIBOT"></div></div>
       </div>
     </div>
     <div class="marquee-track reveal" data-reveal>
