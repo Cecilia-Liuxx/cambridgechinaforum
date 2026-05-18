@@ -1555,18 +1555,20 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
 (function(){
 const morning=[
   {time:'10:30–11:00',title:'Registration',cn:'嘉宾签到',meta:''},
-  {time:'11:00–11:10',title:'Opening Remarks',cn:'开幕致辞',meta:'Gishan Dissanaike, Dean of Cambridge Judge Business School 剑桥大学嘉治商学院院长'},
-  {time:'11:10–11:30',title:'Guest Opening Remarks',cn:'特邀嘉宾致辞',meta:''},
-  {time:'11:30–12:00',title:'Keynote Speakers',cn:'主旨演讲',meta:'Representatives from leading Chinese global companies 中国领先全球企业代表'},
-  {time:'12:00–13:00',title:'Panel Discussion 1',cn:'圆桌讨论',meta:'AI Ecosystem 人工智能生态系统'},
+  {time:'11:00–11:20',title:'Opening Remarks',cn:'开幕致辞',meta:'Gishan Dissanaike, Dean of Cambridge Judge Business School · John McLean OBE'},
+  {time:'11:20–12:30',title:'Keynote Speakers',cn:'主旨演讲',meta:'Penny Peng, BYD Group · Gary Lan, Chery Group · Kai Zhang, Xiaomi Group · Ling Lei, JD Group'},
+  {time:'12:30–13:00',title:'Panel Discussion 1',cn:'圆桌讨论',meta:'Representatives from leading Chinese global companies 中国领先全球企业代表'},
+  {time:'13:00–13:40',title:'Lunch Break',cn:'午歇',meta:''},
 ];
 const afternoon=[
-  {time:'14:00–14:30',title:'Keynote Speakers',cn:'主旨演讲',meta:'Outstanding Chinese entrepreneurs 杰出中国企业家'},
-  {time:'14:30–15:30',title:'Panel Discussion 2',cn:'圆桌讨论',meta:'China–UK entrepreneur & Investment Ecosystem 中英创业与投资生态系统'},
-  {time:'15:30–16:30',title:'Panel Discussion 3',cn:'圆桌讨论',meta:'Finance & Capital Markets in a Changing World 全球变局下的金融与资本市场'},
-  {time:'15:30–17:30',title:'Case Competition',cn:'中国案例分析大赛（sub-event）',meta:'Final Round 总决赛'},
+  {time:'13:40–13:50',title:'Keynote Speakers',cn:'主旨演讲 (online)',meta:'Changbo Liu (中企云链) — online'},
+  {time:'13:50–14:40',title:'Panel Discussion 2',cn:'圆桌讨论',meta:'AI Ecosystem 人工智能生态系统'},
+  {time:'14:45–15:00',title:'Keynote Speakers',cn:'主旨演讲 (online)',meta:'Amber Group CEO (online)'},
+  {time:'15:00–15:10',title:'Keynote Speakers',cn:'主旨演讲',meta:'CICC Head of Singapore'},
+  {time:'15:10–16:00',title:'Panel Discussion 3',cn:'圆桌讨论',meta:'Capital markets and global investment opportunities 资本市场和全球投资机会'},
+  {time:'16:00–17:30',title:'Case Competition',cn:'中国案例分析大赛',meta:'Final Round 总决赛'},
   {time:'17:30–18:00',title:'Networking & Reception',cn:'自由联结时间',meta:''},
-  {time:'18:00–18:30',title:'Closing Ceremony',cn:'闭幕仪式',meta:''},
+  {time:'18:00–18:30',title:'Closing Ceremony',cn:'闭幕仪式',meta:'David Stringer-Lamarre'},
 ];
 function buildSession(s){
   const d=document.createElement('div');d.className='prog-session reveal up';d.dataset.reveal='';
