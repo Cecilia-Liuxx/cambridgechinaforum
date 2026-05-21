@@ -178,6 +178,7 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 .speaker-card:hover{transform:translateY(-2px);background:rgba(255,255,255,.03);}
 .speaker-img-wrap{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(135deg,rgba(139,26,26,.3),rgba(13,6,5,.9));}
 .speaker-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.speaker-photo[src*="Cass%20Liu"]{object-position:center 12% !important;transform:scale(1.08);}
 .speaker-initials{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(201,168,76,.25);}
 .speaker-card-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:5px;min-height:104px;}
 .speaker-tag{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);display:block;}
@@ -391,6 +392,23 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
   .footer-grid{grid-template-columns:1fr;gap:32px;}
   .footer-bottom{flex-direction:column;gap:16px;text-align:center;}
   .partners-logos{justify-content:center;}
+}
+
+/* Force 3 columns for Board Advisors and Organizing Committee on wide screens */
+@media(min-width:1000px){
+  #board-advisors .speakers-grid,
+  #committee .speakers-grid{
+    display:grid;
+    /* match speakers grid sizing so cards/images stay consistent */
+    grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
+    gap:2px;
+  }
+}
+@media(max-width:999px){
+  #board-advisors .speakers-grid,
+  #committee .speakers-grid{
+    grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  }
 }
 
 /* ════════════════════════════════════════════════════
@@ -653,10 +671,13 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
   <div class="nav-logo">CCBF<span>·</span>剑桥中国经贸论坛</div>
   <ul class="nav-links">
     <li><a href="#identity">About</a></li>
-    <li><a href="#speakers">Speakers</a></li>
     <li><a href="#program">Agenda</a></li>
+    <li><a href="#speakers">Speakers</a></li>
+    <li><a href="#board-advisors">Board Advisors</a></li>
+    <li><a href="#committee">Organizing Committee</a></li>
+    <li><a href="#network">Network</a></li>
+    <li><a href="#competition">AI Competition</a></li>
     <li><a href="#partners">Partners</a></li>
-    <li><a href="#competition">Competition</a></li>
   </ul>
   <a href="#register" class="nav-cta">Register</a>
   <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -754,6 +775,39 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 </div>
 
 
+  <section id="program">
+  <div class="program-inner">
+    <div class="sec-overline reveal" data-reveal>
+      <div class="sec-overline-rule"></div>
+      <span class="sec-overline-text">Agenda · 论坛日程</span>
+      <div class="sec-overline-rule r"></div>
+    </div>
+    <div class="prog-date-banner reveal" data-reveal>
+      <div>
+        <div class="prog-date-main">Saturday, 23 May 2026</div>
+        <div class="prog-date-sub">Judge Business School, University of Cambridge &nbsp;·&nbsp; 10:30 — 18:30</div>
+      </div>
+      <a href="#" class="prog-date-ics">+ Add to Calendar</a>
+    </div>
+    <div class="prog-note reveal" data-reveal>* All timings are subject to slight changes on the day · 具体时间会根据当天情况微调</div>
+
+    <div class="prog-sessions" id="progSessions">
+      <div>
+        <div class="prog-col-label reveal" data-reveal>Morning · 上午</div>
+        <div id="morningCol"></div>
+        <div class="prog-lunch-banner reveal" data-reveal>
+          <span class="prog-lunch-label">Lunch Break · 午休</span>
+          <span class="prog-lunch-time">13:00 — 14:00</span>
+        </div>
+      </div>
+      <div>
+        <div class="prog-col-label reveal" data-reveal>Afternoon · 下午</div>
+        <div id="afternoonCol"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- ════════════════════════════════════════════
      04 — SPEAKERS
@@ -786,38 +840,114 @@ section,footer{transition:opacity .45s ease,filter .45s ease;}
 <!-- ════════════════════════════════════════════
      05 — PROGRAM
      ════════════════════════════════════════════ -->
-<section id="program">
-  <div class="program-inner">
+<!-- ════════════════════════════════════════════
+     04 — BOARD ADVISORS
+     ════════════════════════════════════════════ -->
+<section id="board-advisors" style="background:var(--base);padding:130px 0 150px;position:relative;overflow:hidden;">
+  <div class="section-watermark top-right">席</div>
+  <div class="speakers-inner">
     <div class="sec-overline reveal" data-reveal>
       <div class="sec-overline-rule"></div>
-      <span class="sec-overline-text">Agenda · 论坛日程</span>
+      <span class="sec-overline-text">Board Advisors · 顾问委员会</span>
       <div class="sec-overline-rule r"></div>
     </div>
-    <div class="prog-date-banner reveal" data-reveal>
-      <div>
-        <div class="prog-date-main">Saturday, 23 May 2026</div>
-        <div class="prog-date-sub">Judge Business School, University of Cambridge &nbsp;·&nbsp; 10:30 — 18:30</div>
-      </div>
-      <a href="#" class="prog-date-ics">+ Add to Calendar</a>
-    </div>
-    <div class="prog-note reveal" data-reveal>* All timings are subject to slight changes on the day · 具体时间会根据当天情况微调</div>
-
-    <div class="prog-sessions" id="progSessions">
-      <div>
-        <div class="prog-col-label reveal" data-reveal>Morning · 上午</div>
-        <div id="morningCol"></div>
-        <div class="prog-lunch-banner reveal" data-reveal>
-          <span class="prog-lunch-label">Lunch Break · 午休</span>
-          <span class="prog-lunch-time">13:00 — 14:00</span>
-        </div>
-      </div>
-      <div>
-        <div class="prog-col-label reveal" data-reveal>Afternoon · 下午</div>
-        <div id="afternoonCol"></div>
-      </div>
-    </div>
+    <div class="speakers-grid" id="boardGrid"></div>
   </div>
 </section>
+
+<script>
+  (function(){
+    const advisors = [
+      {name:'Sir Sherard Cowper',role:'Vice President and Corporate Secretary',org:'AIIB',tag:'board-advisor',displayTag:'Board Advisor',init:'SC',photo:'BOARD%20PHOTO/Sir%20Sherard%20Cowper.jpeg',linkedin:'https://www.linkedin.com/in/sherard-cowper-coles-74169474/',bio:'Vice President and Corporate Secretary of the AIIB. Former Chair of the China-Britain Business Council (CBBC).'},
+      {name:'Li Li',role:'Chairman',org:'UK Chinese Culture Association',tag:'board-advisor',displayTag:'Board Advisor',init:'LL',photo:'BOARD%20PHOTO/LI%20Li.png',bio:'Chairman of the UK Chinese Culture Association and columnist.'},
+      {name:'John McLean OBE',role:'Formal Chair, Institute of Directors (IoD) London',org:'China UK Business Development Centre',tag:'board-advisor',displayTag:'Board Advisor',init:'JM',photo:'BOARD%20PHOTO/John%20McLean%20OBE.png',linkedin:'https://www.linkedin.com/in/john-mclean-obe-36337516/',bio:'Chair, the China UK Business Development Centre; Formal Chair, Institute of Directors (IoD) London.'},
+    ];
+    const grid=document.getElementById('boardGrid');
+    if(grid){
+      advisors.forEach((s,i)=>{
+        const c=document.createElement('div');
+        c.className='speaker-card reveal';c.dataset.reveal='';c.dataset.filter=s.tag;
+        c.innerHTML=`
+          <div class="speaker-img-wrap" style="background:transparent;">
+            ${s.photo ? `<img class="speaker-photo" src="${s.photo}" alt="${s.name}">` : `<div class="speaker-initials">${s.init}</div>`}
+          </div>
+          <div class="speaker-card-body">
+            <span class="speaker-tag">${s.displayTag || s.tag}</span>
+            <span class="speaker-name">${s.name}${s.linkedin ? `<a href="${s.linkedin}" target="_blank" rel="noopener noreferrer" class="speaker-linkedin-btn" title="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.39v-1.2h-2.5v8.5h2.5v-4.34c0-.77.62-1.4 1.4-1.4.77 0 1.4.63 1.4 1.4v4.34h2.5M7 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-1 15h2.5v-8.5H6v8.5z"/></svg></a>` : ''}</span>
+            <span class="speaker-role">${s.role}${s.org ? ` · ${s.org}` : ''}</span>
+          </div>`;
+        c.innerHTML += `
+          <div class="speaker-bio-hover">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+              <div class="speaker-bio-name">${s.name}</div>
+              ${s.linkedin ? `<a href="${s.linkedin}" target="_blank" rel="noopener noreferrer" class="speaker-linkedin-btn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.39v-1.2h-2.5v8.5h2.5v-4.34c0-.77.62-1.4 1.4-1.4.77 0 1.4.63 1.4 1.4v4.34h2.5M7 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-1 15h2.5v-8.5H6v8.5z"/></svg></a>` : ''}
+            </div>
+            <p class="speaker-bio-text">${s.bio||''}</p>
+          </div>`;
+        grid.appendChild(c);
+        setTimeout(()=>new IntersectionObserver(([en])=>{if(en.isIntersecting){c.classList.add('up');}},{threshold:.1}).observe(c),i*80);
+      });
+    }
+  })();
+</script>
+  <!-- ════════════════════════════════════════════
+     05 — ORGANIZING COMMITTEE
+     ════════════════════════════════════════════ -->
+  <section id="committee" style="background:var(--base);padding:130px 0 150px;position:relative;overflow:hidden;">
+    <div class="section-watermark top-right">组</div>
+    <div class="speakers-inner">
+      <div class="sec-overline reveal" data-reveal>
+        <div class="sec-overline-rule"></div>
+        <span class="sec-overline-text">Organizing Committee · 组织委员会</span>
+        <div class="sec-overline-rule r"></div>
+      </div>
+      <div class="speakers-grid" id="committeeGrid"></div>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      const committee = [
+        {name:'Lan Zhonghe',role:'Cambridge China Business Sig Co-Chair',photo:'Committee%20Photo/Lan%20Zhonghe.jpeg',linkedin:'https://www.linkedin.com/in/zhonghe-lan/'},
+        {name:'Becca Wang',role:'Cambridge China Business Sig Co-Chair',photo:'Committee%20Photo/Becca%20Wang.jpeg',linkedin:'https://www.linkedin.com/in/becca-wang/'},
+        {name:'Roy Wang',role:'Director of AI',photo:'Committee%20Photo/Roy%20Wang.jpeg',linkedin:'https://www.linkedin.com/in/jie-roy-wang-065872155/overlay/photo/'},
+        {name:'Cecilia Liu',role:'Director of Marketing',photo:'Committee%20Photo/Cecilia%20Liu.JPG',linkedin:'https://www.linkedin.com/in/cecilialiu-finance/'},
+        {name:'Mengxi Tian',role:'Director of Brand & Visual Identity',photo:'Committee%20Photo/Mengxi%20Tian.jpeg',linkedin:'https://www.linkedin.com/in/mengxi-tian/'},
+        {name:'Cass Liu',role:'Director of Global Chinese Enterprises Forum | Director of Booth Operation',photo:'Committee%20Photo/Cass%20Liu.jpeg',linkedin:'https://www.linkedin.com/in/cass-xinrui-liu-60777715a/'},
+        {name:'Summer Xie',role:'Director of AI Ecosystem Panel',photo:'Committee%20Photo/Summer%20Xie.jpeg',linkedin:'https://www.linkedin.com/in/wenyi-xie-b55302134/overlay/photo/'},
+        {name:'Annetta Sun',role:'Director of Capital markets and global',photo:'Committee%20Photo/Annetta%20Sun.jpeg',linkedin:'https://www.linkedin.com/in/sunyijia20000510/overlay/photo/'},
+        {name:'Tiffany Luo',role:'Director of Booth Operations',photo:'Committee%20Photo/Tiffany%20Luo%20.png',linkedin:'https://www.linkedin.com/in/tiffany-luo-382a1a309/overlay/photo/'},
+        {name:'Hongrui Liu',role:'Director of Booth Operations',photo:'Committee%20Photo/Hongrui%20Liu%20.jpeg',linkedin:'https://www.linkedin.com/in/rhlhr/'},
+      ];
+      const grid=document.getElementById('committeeGrid');
+      if(grid){
+        committee.forEach((s,i)=>{
+          const c=document.createElement('div');
+          c.className='speaker-card reveal';c.dataset.reveal='';c.dataset.filter='committee';
+          c.innerHTML = `
+            <div class="speaker-img-wrap" style="background:transparent;">
+              ${s.photo ? `<img class="speaker-photo" src="${s.photo}" alt="${s.name}">` : `<div class="speaker-initials">${s.name.split(' ').map(n=>n[0]).join('')}</div>`}
+            </div>
+            <div class="speaker-card-body">
+              <span class="speaker-tag">Organizing Committee</span>
+              <span class="speaker-name">${s.name}${s.linkedin?`<a href="${s.linkedin}" target="_blank" rel="noopener noreferrer" class="speaker-linkedin-btn" title="LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.39v-1.2h-2.5v8.5h2.5v-4.34c0-.77.62-1.4 1.4-1.4.77 0 1.4.63 1.4 1.4v4.34h2.5M7 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-1 15h2.5v-8.5H6v8.5z"/></svg></a>`:''}</span>
+              <span class="speaker-role">${s.role}</span>
+            </div>
+          `;
+          c.innerHTML += `
+            <div class="speaker-bio-hover">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+                <div class="speaker-bio-name">${s.name}</div>
+                ${s.linkedin?`<a href="${s.linkedin}" target="_blank" rel="noopener noreferrer" class="speaker-linkedin-btn" title="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.39v-1.2h-2.5v8.5h2.5v-4.34c0-.77.62-1.4 1.4-1.4.77 0 1.4.63 1.4 1.4v4.34h2.5M7 8a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zm-1 15h2.5v-8.5H6v8.5z"/></svg></a>`:''}
+              </div>
+              <p class="speaker-bio-text">${s.role}</p>
+            </div>`;
+          grid.appendChild(c);
+          setTimeout(()=>new IntersectionObserver(([en])=>{if(en.isIntersecting){c.classList.add('up');}},{threshold:.1}).observe(c),i*60);
+        });
+      }
+    })();
+  </script>
 
 <!-- ════════════════════════════════════════════
      06 — GLOBAL NETWORK
@@ -1480,7 +1610,8 @@ const netRo=new IntersectionObserver(entries=>{
 document.querySelectorAll('.net-stat-num[data-target]').forEach(el=>netRo.observe(el));
 })();
 
-// ════════════════════════════════════════════════════
+
+
 //  SECTION 04 — SPEAKERS DATA + GRID
 // ════════════════════════════════════════════════════
 (function(){
